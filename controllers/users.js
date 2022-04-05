@@ -1,8 +1,12 @@
 const { Users } = require("../repositories");
 
-const get = async (req, res) => {
-  console.log("Controller");
-  const usuarios = await Users.get();
+const get = async () => {
+  let usuarios;
+  try {
+    usuarios = await Users.get();
+  } catch(err) {
+    console.log(err);
+  }
   return usuarios;
 };
 

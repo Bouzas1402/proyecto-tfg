@@ -1,11 +1,11 @@
 const { Users } = require("../controllers");
 
 const get = async (req, res) => {
+  let users;
   try {
-    console.log("rutas");
-    const usr = await Users.get();
+    users = await Users.get();
     res.json({
-      usr,
+      users,
     });
   } catch (err) {
     return console.log(err);
@@ -21,4 +21,5 @@ const post = async (req, res) => {
 
 module.exports = {
   get,
+  post,
 };
