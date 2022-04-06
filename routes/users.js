@@ -17,14 +17,15 @@ const get = async (req, res) => {
 };
 
 const crear = async (req, res) => {
-  if (!req.body.isEmpty) {
+  console.log(req.body);
+  if (Object.keys(req.body).length !== 0) {
     const emailOk = validator.validate(req.body.correo);
     if (!emailOk) {
       return res.json({
         msg: "Email no valido",
       });
     }
-    const rolOk = ValidacionDB.esRolValido(req.body.rol);
+    const rolOk = await ValidacionDB.esRolValido(req.body.rol);
     console.log(rolOk);
     if (!rolOk) {
       return res.json({
@@ -43,7 +44,7 @@ const crear = async (req, res) => {
     }
   } else {
     res.status(404).json({
-      msg: "No se introdujo ningun usuario",
+      msg: "No se introdujo ningun dato",
     });
   }
 };

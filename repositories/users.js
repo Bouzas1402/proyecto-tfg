@@ -15,13 +15,8 @@ const crear = async (user) => {
   // const userCheck = await Users.findOne({ correo: user.correo });
   // if (!userCheck) {
   //const { nombre, contraseña, correo, rol } = user;
-  console.log(user);
-  const userNuevo = new Users({
-    nombre: user.nombre,
-    constraseña: user.contraseña,
-    correo: user.correo,
-    rol: user.rol,
-  });
+  const { nombre, correo, contraseña, rol } = user;
+  const userNuevo = new Users({ nombre, correo, contraseña, rol });
   try {
     const { contraseña } = user;
     const salt = bcryptjs.genSaltSync();
