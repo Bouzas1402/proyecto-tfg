@@ -12,6 +12,7 @@ const UsuarioSchema = Schema({
   correo: {
     type: String,
     required: [true, "El correo es oblitaorio"],
+    unique: true,
   },
   img: {
     type: String,

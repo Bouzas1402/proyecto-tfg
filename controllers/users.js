@@ -1,15 +1,23 @@
 const { Users } = require("../repositories");
 
 const get = async () => {
-  let usuarios;
   try {
-    usuarios = await Users.get();
-  } catch(err) {
+    return await Users.get();
+  } catch (err) {
     console.log(err);
   }
-  return usuarios;
+};
+
+const crear = async (user) => {
+  try {
+    await Users.crear(user);
+  } catch (err) {
+    console.log(err);
+    throw new Error("Usuario no se pudo crear");
+  }
 };
 
 module.exports = {
   get,
+  crear,
 };
