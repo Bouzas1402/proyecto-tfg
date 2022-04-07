@@ -11,10 +11,6 @@ const get = async () => {
 };
 
 const crear = async (user) => {
-  //const dataUser = user;
-  // const userCheck = await Users.findOne({ correo: user.correo });
-  // if (!userCheck) {
-  //const { nombre, contraseña, correo, rol } = user;
   const { nombre, correo, contraseña, rol } = user;
   const userNuevo = new Users({ nombre, correo, contraseña, rol });
   try {
@@ -26,9 +22,6 @@ const crear = async (user) => {
     console.log(err);
     return new Error(`Fallo al crear un usuario ${err.message}`);
   }
-  // } else {
-  //   return new Error("El usuario ya existe");
-  //}
 };
 
 module.exports = { get, crear };
