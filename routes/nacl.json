@@ -1,0 +1,322 @@
+[
+  {
+    "group": "NON_ROLE",
+    "permissions": [
+      {
+        "resource": "updateHTML",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "pagescategories",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "pageszones",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "admin/users/login",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "users/subscribe",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "productsTemplate/*",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "faqs",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "posts",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "posts/*",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "categories",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "categories/*",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "products",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "products/*",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "pages/*",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "users/login",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "users",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "users/check",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "users/recover",
+        "methods": ["POST", "GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "users/checkvat",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "content/*",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "clients",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "clients/data",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "zips/*",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "holidays",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "cupons/*",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "homelist",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "sitemap",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "messages",
+        "methods": ["GET"],
+        "action": "allow"
+      }
+    ]
+  },
+  {
+    "group": "ADMIN_ROLE",
+    "permissions": [
+      {
+        "resource": "*",
+        "methods": "*",
+        "action": "allow"
+      }
+    ]
+  },
+  {
+    "group": "TRANSLATE_ROLE",
+    "permissions": [
+      {
+        "resource": "*",
+        "methods": "*",
+        "action": "allow"
+      }
+    ]
+  },
+  {
+    "group": "GESTION_ROLE",
+    "permissions": [
+      {
+        "resource": "*",
+        "methods": "*",
+        "action": "allow"
+      }
+    ]
+  },
+  {
+    "group": "USER_ROLE",
+    "permissions": [
+      {
+        "resource": "pagescategories",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "pageszones",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "productsTemplate",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "faqs",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "posts",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "categories",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "products",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "pages",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "users/*",
+        "methods": ["GET", "PUT", "POST", "DELETE"],
+        "action": "allow"
+      },
+      {
+        "resource": "users/login",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "content",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "clients",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "zips",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "holidays",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "payment/*",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "orders/*",
+        "methods": ["GET", "PUT", "POST", "DELETE"],
+        "action": "allow"
+      },
+      {
+        "resource": "orders/*/sendMail",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "cupons",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "upload/*",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "messages",
+        "methods": ["GET"],
+        "action": "allow"
+      }
+    ]
+  },
+  {
+    "group": "INVITED_ROLE",
+    "permissions": [
+      {
+        "resource": "orders",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "users/*",
+        "methods": ["GET", "PUT", "POST", "DELETE"],
+        "action": "allow"
+      },
+      {
+        "resource": "users/checkvat",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "payment/*",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "users/carts",
+        "methods": ["DELETE"],
+        "action": "allow"
+      },
+      {
+        "resource": "users/login",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "messages",
+        "methods": ["GET"],
+        "action": "allow"
+      }
+    ]
+  }
+]

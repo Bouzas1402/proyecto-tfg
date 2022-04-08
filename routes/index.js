@@ -1,4 +1,5 @@
 const express = require("express");
+const acl = require("express-acl");
 
 const Users = require("./users");
 const Roles = require("./roles");
@@ -7,6 +8,12 @@ const Anuncios = require("./anuncios");
 const { validarCampos, validarJWT } = require("../middlewares");
 
 const app = express();
+
+acl.config({
+  baseUrl: "/",
+});
+
+app.use(acl.authorize);
 
 app.post("/proyecto/login", Users.login);
 
