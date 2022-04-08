@@ -22,3 +22,4 @@ app.listen(process.env.PORT, () => {
   console.log(`escuchando puerto ${process.env.PORT}`);
   console.log(`escuchando base de datos ${process.env.urlDB}`);
 });
+module.exports = app;
