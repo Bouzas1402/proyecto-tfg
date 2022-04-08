@@ -1,3 +1,3 @@
 const ValidacionDB = require("./db-validators");
-
-module.exports = { ValidacionDB };
+const { generarJWT } = require("./generar-jwt");
+module.exports = { ValidacionDB, generarJWT };

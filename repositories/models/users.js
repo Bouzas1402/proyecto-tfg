@@ -1,4 +1,5 @@
 const { Schema, model } = require("mongoose");
+const { roles } = require("../../Utils");
 
 const UsuarioSchema = Schema({
   nombre: {
@@ -20,6 +21,8 @@ const UsuarioSchema = Schema({
   rol: {
     type: String,
     required: true,
+    required: true,
+    enum: roles,
   },
   estado: {
     type: Boolean,

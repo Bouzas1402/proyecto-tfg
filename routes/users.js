@@ -1,9 +1,9 @@
-const { check } = require("express-validator");
+//const { check } = require("express-validator");
 const validator = require("email-validator");
 const { Users } = require("../controllers");
 
-const { validarCampos } = require("../middlewares");
-const { ValidacionDB } = require("../helpers");
+//const { validarCampos } = require("../middlewares");
+//const { ValidacionDB } = require("../helpers");
 
 const get = async (req, res) => {
   try {
@@ -12,22 +12,15 @@ const get = async (req, res) => {
       users,
     });
   } catch (err) {
-    return console.log(err);
+    console.log(err);
+    return new Error("Error al buscar los usuarios - rutas");
   }
 };
 
 const crear = async (req, res) => {
-  console.log(req.body);
   if (Object.keys(req.body).length !== 0) {
     const emailOk = validator.validate(req.body.correo);
     if (!emailOk) {
-      return res.json({
-        msg: "Email no valido",
-      });
-    }
-    const rolOk = await ValidacionDB.esRolValido(req.body.rol);
-    console.log(rolOk);
-    if (!rolOk) {
       return res.json({
         msg: "Email no valido",
       });
@@ -49,7 +42,35 @@ const crear = async (req, res) => {
   }
 };
 
+const login = async (req, res) => {
+  try {
+    const { correo, contraseña } = req.body;
+    const token = await Users.login(correo, contraseña);
+    return res.json({
+      token,
+    });
+  } catch (err) {
+    return new Error("Login incorrecto");
+  }
+};
+
+const borrar = async (req, res) => {
+  try {
+    const { id } = req.body;
+    const { token } = req.header("token");
+    await Users.borrar(id, token);
+    return res.json({
+      msg: "Usuario borrado",
+    });
+  } catch (err) {
+    console.log(err);
+    return new Error("Error al borrar usuario - rutas");
+  }
+};
+
 module.exports = {
   get,
   crear,
+  login,
+  borrar,
 };

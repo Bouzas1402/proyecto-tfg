@@ -1,15 +1,23 @@
 const { Anuncios } = require("../repositories");
 
 const get = async () => {
-    let anuncios;
-    try {
-        anuncios = await Anuncios.get();
-    } catch (err) {
-        console.log(err);
-    }
-    return anuncios;
+  try {
+    return await Anuncios.get();
+  } catch (err) {
+    console.log(err);
+    throw new Error("Error al buscar los anuncios - controladores");
+  }
 };
 
+const post = async (anuncio) => {
+  try {
+    return await Anuncios.post(anuncio);
+  } catch (err) {
+    console.log(err);
+    throw new Error("Fallo al crear el anuncio - contorller");
+  }
+};
 module.exports = {
-    get,
-}
+  get,
+  post,
+};
