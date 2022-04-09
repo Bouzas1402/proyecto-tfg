@@ -10,25 +10,25 @@ const { validarCampos, validarJWT } = require("../middlewares");
 const app = express();
 
 acl.config({
-  baseUrl: "/",
+  baseUrl: "proyecto",
 });
 
-app.use(acl.authorize);
+app.use(acl.authorize.unless({ path: { url: "/proyecto/login"}}));
 
 app.post("/proyecto/login", Users.login);
 
 // User
-app.get("/proyecto/user/get", Users.get);
-app.post("/proyecto/user/post", Users.crear);
-app.put("/proyecto/user/put");
-app.delete("/proyecto/user/delete", validarJWT, Users.borrar);
+app.get("/proyecto/user", Users.get);
+app.post("/proyecto/user", Users.crear);
+app.put("/proyecto/user");
+app.delete("/proyecto/user", validarJWT, Users.borrar);
 
 // Roles
 app.get("/proyecto/roles/get", Roles.get);
 
 // Anuncios
-app.get("/proyecto/anuncios/get", Anuncios.get);
-app.post("/proyecto/anuncios/post", validarJWT, Anuncios.post);
-app.delete("/proyecto/anuncios/delete");
+app.get("/proyecto/anuncios", Anuncios.get);
+app.post("/proyecto/anuncios", validarJWT, Anuncios.post);
+app.delete("/proyecto/anuncios");
 
 module.exports = app;

@@ -1,0 +1,33 @@
+[
+  {
+    "group": "ADMIN_ROLE",
+    "permissions": [
+      {
+        "resource": "*",
+        "methods": "*",
+        "action": "allow"
+      }
+    ]
+  },
+  {
+    "group": "USER_ROLE",
+    "permissions": [
+      {
+        "resource": "/proyecto/anuncios",
+        "methods": ["GET"],
+        "action": "allow"
+      }
+    ]
+  },
+  {
+    "group": "VENTAS_ROLE",
+    "permissions": [
+      {
+        "resource": "/proyecto/anuncios",
+        "methods": ["GET", "POST", "DELETE"],
+        "action": "allow"
+      }
+    ]
+  }
+
+]
