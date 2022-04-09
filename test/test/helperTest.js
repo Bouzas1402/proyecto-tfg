@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const request = require("supertest");
+const { generarJWT } = require("../../helpers");
 
 process.env.urlDB = "mongodb://localhost:27017/test_proyecto";
 const app = require("../../server");
@@ -7,31 +8,18 @@ const app = require("../../server");
 //global.apikey = '$2b$10$PtBCxIPG7gOoviQBc63nOOolHQVup0TS.4kq3P2tWaXBJCVuBI.MO';
 //global.apikeyGestion = '$2b$10$43Uq1fNiN6/M3zGwKjeLTuL/xULrlwmsR9lrF0agh8pzSMeyvUAFC';
 
-/*before((done) => {
-  console.log("FGFD");
+before((done) => {
+
   request(app)
     .post("/proyecto/login")
     .send({ correo: "admin@correo.com", contraseña: "admin" })
+    .set('Accept', 'application/json')
     .set("origin", "LocalHost")
-    .end((err, res) => {
+    .end( async (err, res) => {
       global.tokenAdmin = res.body.token;
-      console.log(global.tokenAdmin);
       done();
     });
 });
-
-before((done) => {
-  console.log("453543");
-  request(app)
-    .post("/proyecto/login")
-    .send({ correo: "ventas@correo.com", contraseña: "ventas" })
-    .set("origin", "LocalHost")
-    .end((err, res) => {
-      done();
-      global.tokenVentas = res.body.token;
-      console.log(global.tokenVentas);
-    });
-});*/
 
 after((done) => {
   mongoose.connect(process.env.urlDB, {

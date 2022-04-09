@@ -7,7 +7,8 @@
     "start-nodemon": "nodemon server",
     "start": "node server",
     "prepareTest": "node test/prepareTests.js",
-    "test": "npm run prepareTest;mocha --recursive ./test/test"
+    "test": "mocha --recursive ./test/test",
+    "dev": "concurrently \"npm run prepareTest\" \"npm run test\""
   },
   "author": "Carlos Bouzas",
   "license": "MIT",
@@ -23,5 +24,8 @@
     "mocha": "^9.2.2",
     "mongoose": "^6.2.10",
     "supertest": "^6.2.2"
+  },
+  "devDependencies": {
+    "concurrently": "^7.1.0"
   }
 }

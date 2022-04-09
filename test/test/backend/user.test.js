@@ -12,20 +12,49 @@ describe("Test Users", () => {
         .set("origin", "LocalHost")
         .expect("Content-Type", /json/)
         .end((err, res) => {
+          console.log(res.status);
+          console.log(res.body.users[0]);
           expect(200);
-          expect(res.body.users.length).to.deep.equal(4);
-          expect(res.body.users[0].nombre).to.deep.equal(
-            "Usuario Administrador"
-          );
-          expect();
-          expect();
-          expect();
-          expect();
-          expect();
+          expect(res.body.users[0]).to.include(
+            {
+              nombre: "Usuario Administrador",
+              correo: "admin@correo.com",
+              rol: "ADMIN_ROLE",
+              estado: true,
+              google: false
+            }
+        );
+        expect(res.body.users[1]).to.include(
+            {
+              nombre: "Usuario normal 1",
+              correo: "usuario1@correo.com",
+              rol: "USER_ROLE",
+              estado: true,
+              google: false
+            }
+        );
+        expect(res.body.users[2]).to.include(
+            {
+              nombre: "Usuario ventas",
+              correo: "ventas@correo.com",
+              rol: "VENTAS_ROLE",
+              estado: true,
+              google: false
+            }
+        );
+        expect(res.body.users[0], res.body.users[1], res.body.users[2]).to.have.property("uid");
+
+        
+        //expect(res.body.users[]);
+        //expect(res.body.users[]);
+        //expect(res.body.users[]);
           done();
           //    expect().
           //expect().body
         });
     });
   });
+//  describe("POST /proyecto/user/post - ")
+
+
 });
