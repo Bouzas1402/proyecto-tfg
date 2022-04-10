@@ -1,0 +1,24 @@
+[{
+    "nombre": "Usuario Administrador",
+    "contraseña": "$2a$10$uSsaHkciVXfWsROoMn5ADutqYV.SQgVKdCj2FznGDJ7Vo4.mQZs/K",
+    "correo": "admin@correo.com",
+    "rol": "ADMIN_ROLE"
+  },
+  {
+    "nombre": "Usuario normal 1",
+    "contraseña": "$2a$10$uSsaHkciVXfWsROoMn5ADueqJ8LuJ2Ps76pZkgCSdB9yClFLUmG0G",
+    "correo": "usuario1@correo.com",
+    "rol": "USER_ROLE"
+  },
+  {
+    "nombre": "Usuario ventas",
+    "contraseña": "$2a$10$uSsaHkciVXfWsROoMn5ADuA4RkxT.Ht/GcdxFMXXs/KgB8YvV88ty",
+    "correo": "ventas@correo.com",
+    "rol": "VENTAS_ROLE"
+  },
+  {
+    "tokenAdmin": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MjUyMDhmNDc1MWNlZjZlNjY2ODYxODciLCJyb2wiOiJBRE1JTl9ST0xFIiwiaWF0IjoxNjQ5NTQzNDQ1LCJleHAiOjE2NDk1NTc4NDV9.gGCUGXRgtifOl4M9qQLn0HDFMDX-iaFDiYruq5uzk-s",
+    "tokenUser": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MjUyMDhmZjc1MWNlZjZlNjY2ODYxODgiLCJyb2wiOiJVU0VSX1JPTEUiLCJpYXQiOjE2NDk1NDM1MjIsImV4cCI6MTY0OTU1NzkyMn0.jM9OAzYyLDPKp4lbSrmOW4t96jRz9qhMAVuFbr7_E2k",
+    "tokenVentas": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MjUyMDkxMTc1MWNlZjZlNjY2ODYxODkiLCJyb2wiOiJWRU5UQVNfUk9MRSIsImlhdCI6MTY0OTU0MzU3NywiZXhwIjoxNjQ5NTU3OTc3fQ.9pyh4YSHq7NgRHsKqmVqN1G1LLsTajTJBHQHEZKcPX0"
+  }
+]

@@ -1,4 +1,7 @@
+const validator = require("email-validator");
+
 const { Roles, Usuario } = require("../repositories/models");
+
 
 const esRolValido = async (rol = "") => {
   const existeRol = await Roles.findOne({ rol });
@@ -7,11 +10,18 @@ const esRolValido = async (rol = "") => {
   }
 };
 
-const esEmailValido = async (correo = "") => {
-  const existeEmail = await Usuario.findOne({ correo });
-  if (existeEmail) {
-    return new Error(`El correo ${correo} ya existe prueba con otro`);
-  }
+const esEmailValido = async (req, res, next) => {
+  const emailOk = validator.validate(req.body.correo);
+    if (!emailOk) {
+      return res.json({
+        msg: "Email no valido",
+      });
+    }
+    next();
+ // const existeEmail = await Usuario.findOne({ correo });
+ // if (existeEmail) {
+ //   return new Error(`El correo ${correo} ya existe prueba con otro`);
+ // }
 };
 
 const existeUsuarioPorId = async (id) => {

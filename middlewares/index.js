@@ -1,3 +1,4 @@
-const validarCampos = require("./validar-campos");
+const { validate } = require("./validar-campos");
 const { validarJWT } = require("./validar-jwt");
-module.exports = { validarCampos, validarJWT };
+
+module.exports = { validate, validarJWT };

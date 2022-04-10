@@ -12,8 +12,8 @@ const get = async () => {
 };
 
 const crear = async (user) => {
-  const { nombre, correo, contraseña, rol } = user;
-  const userNuevo = new Users({ nombre, correo, contraseña, rol });
+  const { nombre, correo, contraseña, role } = user;
+  const userNuevo = new Users({ nombre, correo, contraseña, role });
   try {
     const { contraseña } = user;
     const salt = bcryptjs.genSaltSync();
@@ -34,10 +34,11 @@ const login = async (correo, contraseña) => {
         contraseña,
         usuario.contraseña
       );
+     
       if (!constraseñaValida) {
         return new Error("Contraseña no valida");
       }
-      const token = await generarJWT(usuario.id, usuario.rol);
+      const token = await generarJWT(usuario.id, usuario.role);
       return token;
     } else {
       return new Error("No existe el usuario");

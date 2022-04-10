@@ -16,9 +16,9 @@ app.use(require("./routes"));
 
 app.listen(process.env.PORT, () => {
   mongoose
-    .connect(process.env.urlDB)
+    .connect(process.env.urlLocal)
     .then((res) => console.log("Connected"))
     .catch((err) => console.log(err));
   console.log(`escuchando puerto ${process.env.PORT}`);
-  console.log(`escuchando base de datos ${process.env.urlDB}`);
+  console.log(`escuchando base de datos ${process.env.urlLocal}`);
 });
