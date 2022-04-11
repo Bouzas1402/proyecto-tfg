@@ -21,7 +21,7 @@ const crear = async (req, res) => {
   if (Object.keys(req.body).length !== 0) {
     const emailOk = validator.validate(req.body.correo);
     if (!emailOk) {
-      return res.json({
+      return res.status(422).json({
         msg: "Email no valido",
       });
     }
@@ -33,7 +33,7 @@ const crear = async (req, res) => {
       });
     } catch (err) {
       console.log(err);
-      return new Error("User rutas post");
+      return new Error("Error al introducir los datos");
     }
   } else {
     res.status(404).json({

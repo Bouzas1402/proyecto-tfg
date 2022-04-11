@@ -18,11 +18,10 @@ const UsuarioSchema = Schema({
   img: {
     type: String,
   },
-  rol: {
+  role: {
     type: String,
-    required: true,
-    required: true,
     enum: roles,
+    default: "USER_ROLE",
   },
   estado: {
     type: Boolean,

@@ -12,17 +12,17 @@ const get = async () => {
 };
 
 const crear = async (user) => {
-  const { nombre, correo, contraseña, rol } = user;
-  const userNuevo = new Users({ nombre, correo, contraseña, rol });
+  const { nombre, correo, contraseña, role } = user;
+  const data = new Users({ nombre, correo, contraseña, role });
   try {
     const { contraseña } = user;
     const salt = bcryptjs.genSaltSync();
-    userNuevo.contraseña = bcryptjs.hashSync(contraseña, salt);
-    await userNuevo.save(userNuevo);
+    data.contraseña = bcryptjs.hashSync(contraseña, salt);
+    const userNuevo = await data.save(data);
     return userNuevo;
   } catch (err) {
     console.log(err);
-    return new Error(`Fallo al crear un usuario ${err.message}`);
+    return new Error(`Fallo al crear el usuario`);
   }
 };
 
@@ -37,7 +37,7 @@ const login = async (correo, contraseña) => {
       if (!constraseñaValida) {
         return new Error("Contraseña no valida");
       }
-      const token = await generarJWT(usuario.id, usuario.rol);
+      const token = await generarJWT(usuario.id, usuario.role);
       return token;
     } else {
       return new Error("No existe el usuario");

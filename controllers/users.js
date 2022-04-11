@@ -30,9 +30,9 @@ const login = async (correo, contraseña) => {
 
 const borrar = async (id, token) => {
   try {
-    const { rol } = jwt.verify(token, process.env.SECRETORPRIVATEKEY);
-    console.log(rol);
-    if (rol === "ADMIN_ROL") {
+    const { role } = jwt.verify(token, process.env.SECRETORPRIVATEKEY);
+    console.log(role);
+    if (rol === "ADMIN_ROLE") {
       return await Users.borrar(id);
     } else {
       return new Error("No tienes permisos para borrar usuarios");

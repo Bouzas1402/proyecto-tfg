@@ -12,14 +12,12 @@ describe("Test Users", () => {
         .set("origin", "LocalHost")
         .expect("Content-Type", /json/)
         .end((err, res) => {
-          console.log(res.status);
-          console.log(res.body.users[0]);
           expect(200);
           expect(res.body.users[0]).to.include(
             {
               nombre: "Usuario Administrador",
               correo: "admin@correo.com",
-              rol: "ADMIN_ROLE",
+              role: "ADMIN_ROLE",
               estado: true,
               google: false
             }
@@ -28,7 +26,7 @@ describe("Test Users", () => {
             {
               nombre: "Usuario normal 1",
               correo: "usuario1@correo.com",
-              rol: "USER_ROLE",
+              role: "USER_ROLE",
               estado: true,
               google: false
             }
@@ -37,7 +35,7 @@ describe("Test Users", () => {
             {
               nombre: "Usuario ventas",
               correo: "ventas@correo.com",
-              rol: "VENTAS_ROLE",
+              role: "VENTAS_ROLE",
               estado: true,
               google: false
             }
@@ -54,7 +52,72 @@ describe("Test Users", () => {
         });
     });
   });
-//  describe("POST /proyecto/user/post - ")
+
+  describe("POST /proyecto/user/post - Add new uer ", () => {
+    it("T_USER002 - Add user with incorrect email", (done) => {
+      request(app)
+        .post("/proyecto/user/post")
+        .send({
+          nombre: "Juan Bouzas",
+          correo: "correo2",
+          contraseña: "hollas",
+          role: "USER_ROLE",
+        })
+        .set("Accept", "application/json")
+        .set("origin", "LocalHost")
+        .expect("Content-Type", /json/)
+        .end((err, res) => {
+         expect(422);
+         expect(res.body.msg).to.equal("Email no valido");
+          
+          done();
+        })
+    });
+    it("T_USER003 - Add user with incorrect data", (done) => {
+      request(app)
+        .post("/proyecto/user/post")
+        .send({
+          nombre: "Juan Bouzas",
+          correo: "correo2@correo.com",
+          role: "USER_ROLE",
+        })
+        .set("Accept", "application/json")
+        .set("origin", "LocalHost")
+        .expect("Content-Type", /json/)
+        .end((err, res) => {
+          expect(res.body.error).to.equal("Fallo al crear el usuario");
+          done();
+        })
+    });
+
+it("T_USER004 - Add user", (done) => {
+      request(app)
+        .post("/proyecto/user/post")
+        .send({
+          nombre: "Juan Bouzas",
+          correo: "correo2@correo.com",
+          contraseña: "hollas",
+          role: "USER_ROLE",
+        })
+        .set("Accept", "application/json")
+        .set("origin", "LocalHost")
+        .expect("Content-Type", /json/)
+        .end((err, res) => {
+          expect(200);
+          expect(res.body.user).to.deep.equal({
+            nombre: "Juan Bouzas",
+            correo: "correo2@correo.com",
+            contraseña: "hollas",
+            role: "USER_ROLE",
+          });
+          done();
+        })
+  });
+
+  });
+  
+ 
+
 
 
 });

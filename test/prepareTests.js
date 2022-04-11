@@ -19,7 +19,7 @@ mongoose.connection.once("open", async () => {
     nombre: "Usuario Administrador",
     contraseña: passAdmin,
     correo: "admin@correo.com",
-    rol: "ADMIN_ROLE",
+    role: "ADMIN_ROLE",
   });
   const Administrador = await usuarioAdmin.save({ validateBeforeSave: false });
 
@@ -27,7 +27,7 @@ mongoose.connection.once("open", async () => {
     nombre: "Usuario normal 1",
     contraseña: passUser,
     correo: "usuario1@correo.com",
-    rol: "USER_ROLE",
+    role: "USER_ROLE",
   });
   const userNormal1 = await user1.save();
 
@@ -35,7 +35,7 @@ mongoose.connection.once("open", async () => {
     nombre: "Usuario ventas",
     contraseña: passVentas,
     correo: "ventas@correo.com",
-    rol: "VENTAS_ROLE",
+    role: "VENTAS_ROLE",
   });
   const userVentas = await user2.save();
 
