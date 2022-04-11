@@ -36,7 +36,7 @@ const crear = async (req, res) => {
       return new Error("Error al introducir los datos");
     }
   } else {
-    res.status(404).json({
+    res.status(422).json({
       msg: "No se introdujo ningun dato",
     });
   }

@@ -73,19 +73,15 @@ describe("Test Users", () => {
           done();
         })
     });
-    it("T_USER003 - Add user with incorrect data", (done) => {
+    it("T_USER003 - Add user without data", (done) => {
       request(app)
         .post("/proyecto/user/post")
-        .send({
-          nombre: "Juan Bouzas",
-          correo: "correo2@correo.com",
-          role: "USER_ROLE",
-        })
         .set("Accept", "application/json")
         .set("origin", "LocalHost")
         .expect("Content-Type", /json/)
         .end((err, res) => {
-          expect(res.body.error).to.equal("Fallo al crear el usuario");
+          expect(422);
+          expect(res.body.msg).to.equal("No se introdujo ningun dato");
           done();
         })
     });
