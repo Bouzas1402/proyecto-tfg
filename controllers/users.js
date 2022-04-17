@@ -1,50 +1,30 @@
-const { Users } = require("../repositories");
+const {Users} = require("../repositories");
 const jwt = require("jsonwebtoken");
 
 const get = async () => {
-  try {
-    return await Users.get();
-  } catch (err) {
-    console.log(err);
-    throw new Error("Problema al recuperar los usuarios");
-  }
+  return await Users.get();
 };
 
 const crear = async (user) => {
-  try {
-    return await Users.crear(user);
-  } catch (err) {
-    console.log(err);
-    throw new Error("Usuario no se pudo crear");
-  }
+  return await Users.crear(user);
 };
 
 const login = async (correo, contraseña) => {
-  try {
-    return await Users.login(correo, contraseña);
-  } catch (err) {
-    console.log(err);
-    throw new Error("Login incorrecto - contorller");
-  }
+  return await Users.login(correo, contraseña);
 };
 
-const borrar = async (id, token) => {
-  try {
-    const { role } = jwt.verify(token, process.env.SECRETORPRIVATEKEY);
-    console.log(role);
-    if (rol === "ADMIN_ROL") {
-      return await Users.borrar(id);
-    } else {
-      return new Error("No tienes permisos para borrar usuarios");
-    }
-  } catch (err) {
-    console.log(err);
-    throw new Error("Problema al borrar un usuario - controller");
-  }
+const borrar = async (id) => {
+  return await Users.borrar(id);
 };
+
+const borrarByCorreo = async (correo) => {
+  return await Users.borrarByCorreo(correo);
+};
+
 module.exports = {
   get,
   crear,
   login,
   borrar,
+  borrarByCorreo,
 };

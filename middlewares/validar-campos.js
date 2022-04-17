@@ -1,24 +1,15 @@
-const { validationResult } = require("express-validator");
+const jwt = require("jsonwebtoken");
 
-/*const validar = (req, res, next) => {
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(400).json(errors);
+const compararId = async (req, res, next) => {
+  const token = req.header("token");
+  const decoded = jwt.verify(token, process.env.SECRETORPRIVATEKEY);
+  console.log(req);
+  if (req.params != decoded.uid) {
+    return res.status(401).json({
+      msg: "No tienes permiso para esta acción.",
+    });
   }
   next();
 };
-*/
 
-function validate(ajvValidate) {
-  return (Req, res, next) => {
-    const valid = ajvValidate(req.body);
-    if(!valid) {
-      res.status(400).json(ajvValidate.errors);
-    }
-    next();
-  }
-}
-
-
-
-module.exports = validate;
+module.exports = {compararId};

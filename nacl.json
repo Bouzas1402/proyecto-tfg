@@ -16,6 +16,11 @@
         "resource": "/proyecto/anuncios",
         "methods": ["GET"],
         "action": "allow"
+      },
+      {
+        "resource": "/proyecto/user",
+        "methods": ["DELETE", "PUT"],
+        "action": "allow"
       }
     ]
   },
@@ -25,6 +30,11 @@
       {
         "resource": "/proyecto/anuncios",
         "methods": ["GET", "POST", "DELETE"],
+        "action": "allow"
+      },
+      {
+        "resource": "/proyecto/user",
+        "methods": ["DELETE", "PUT"],
         "action": "allow"
       }
     ]

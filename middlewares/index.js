@@ -1,4 +1,4 @@
-const { validate } = require("./validar-campos");
-const { validarJWT } = require("./validar-jwt");
+const {compararId} = require("./validar-campos");
+const {validarJWT} = require("./validar-jwt");
 
-module.exports = { validate, validarJWT };
+module.exports = {compararId, validarJWT};

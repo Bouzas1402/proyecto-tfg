@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose");
+const {Schema, model} = require("mongoose");
 
 const CalleSchema = Schema({
   comunidad: {
@@ -24,6 +24,18 @@ const CalleSchema = Schema({
   piso: {
     type: String,
   },
+  autoIndexId: false,
+});
+
+const FotosSchema = Schema({
+  titulo: {
+    type: String,
+    require: [true, "El titulo de la foto es obligatorio"],
+  },
+  url: {
+    type: String,
+    require: [true, "La url e obligatoria"],
+  },
 });
 
 const AnuncioSchema = Schema({
@@ -32,7 +44,7 @@ const AnuncioSchema = Schema({
     require: [true, "El titulo es obligatorio"],
   },
   direccion: [CalleSchema],
-  fotos: [{ titulo: String, URL: String }],
+  fotos: [FotosSchema],
   descripcion: {
     type: String,
     required: true,

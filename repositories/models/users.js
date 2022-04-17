@@ -1,5 +1,7 @@
-const { Schema, model } = require("mongoose");
-const { roles } = require("../../Utils");
+const {Schema, model} = require("mongoose");
+
+const {validate} = require("email-validator");
+const {roles} = require("../../Utils");
 
 const UsuarioSchema = Schema({
   nombre: {
@@ -9,33 +11,39 @@ const UsuarioSchema = Schema({
   contraseña: {
     type: String,
     required: [true, "La contraseña es obligatoria"],
+    minLength: 8,
+    //match: [/^(?=.{8,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$/, "La contraseña debe tener al menos una mayuscula, un numero y un caracter no alphanumerico"],
   },
   correo: {
     type: String,
+    lowercase: true,
+    validate: [validate, "No es un correo valido"],
     required: [true, "El correo es oblitaorio"],
-    unique: true,
+    unique: [true, "Este correo ya esta registrado"],
   },
   img: {
     type: String,
   },
   role: {
     type: String,
-    required: true,
-    required: true,
     enum: roles,
+    default: "USER_ROLE",
   },
   estado: {
     type: Boolean,
     default: true,
   },
-  google: {
-    type: Boolean,
-    default: false,
+  anuncios: {
+    type: [[]],
+  },
+  creacionCuenta: {
+    type: Date,
+    default: Date.now,
   },
 });
 
 UsuarioSchema.methods.toJSON = function () {
-  const { __v, contraseña, _id, ...usuario } = this.toObject();
+  const {__v, contraseña, _id, ...usuario} = this.toObject();
   usuario.uid = _id;
   return usuario;
 };

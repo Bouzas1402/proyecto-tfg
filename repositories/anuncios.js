@@ -1,4 +1,4 @@
-const { Anuncios } = require("./models");
+const {Anuncios} = require("./models");
 
 const get = async () => {
   try {
@@ -15,7 +15,7 @@ const post = async (anuncio) => {
     return await nuevoAnuncio.save(nuevoAnuncio);
   } catch (err) {
     console.log(err);
-    return new Error("Error al crear el anuncio - repositorio");
+    return new Error(`Error al crear el anuncio - repositorio - ${err}`);
   }
 };
 

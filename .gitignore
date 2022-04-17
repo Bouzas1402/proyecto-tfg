@@ -1,2 +1,7 @@
 /node_modules
 .vscode
+<<<<<<< HEAD
+=======
+coverage
+.nyc_output
+>>>>>>> test

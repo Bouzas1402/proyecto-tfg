@@ -1,6 +1,6 @@
 //const { check } = require("express-validator");
 const validator = require("email-validator");
-const { Users } = require("../controllers");
+const {Users} = require("../controllers");
 
 //const { validarCampos } = require("../middlewares");
 //const { ValidacionDB } = require("../helpers");
@@ -8,63 +8,84 @@ const { Users } = require("../controllers");
 const get = async (req, res) => {
   try {
     const users = await Users.get();
-    return res.json({
+    console.log(users);
+    return res.status(200).json({
       users,
     });
   } catch (err) {
     console.log(err);
-    return new Error("Error al buscar los usuarios - rutas");
+    return res.status(403).json({
+      error: `Error al buscar los usuarios: ${err}`,
+    });
   }
 };
 
 const crear = async (req, res) => {
-  if (Object.keys(req.body).length !== 0) {
-    const emailOk = validator.validate(req.body.correo);
-    if (!emailOk) {
-      return res.json({
-        msg: "Email no valido",
-      });
-    }
-    try {
-      const user = req.body;
-      await Users.crear(user);
-      return res.json({
-        user,
-      });
-    } catch (err) {
-      console.log(err);
-      return new Error("User rutas post");
-    }
-  } else {
-    res.status(404).json({
-      msg: "No se introdujo ningun dato",
+  const user = await Users.crear(req.body);
+  if (JSON.stringify(user) == "{}") {
+    return res.status(422).json({
+      error: `Error al introducir los datos:  ${user.message}`,
     });
   }
+  return res.status(200).json({
+    msg: `Usuario ${user.correo} creado`,
+    user,
+  });
 };
 
 const login = async (req, res) => {
   try {
-    const { correo, contraseña } = req.body;
+    const {correo, contraseña} = req.body;
     const token = await Users.login(correo, contraseña);
-    return res.json({
+    if (JSON.stringify(token) == "{}") {
+      return res.status(422).json({
+        error: `Error al introducir los datos:  ${token.message}`,
+      });
+    }
+    return res.status(200).json({
       token,
     });
   } catch (err) {
-    return new Error("Login incorrecto");
+    return res.status(403).json({
+      error: `Login incorrecto: ${err}`,
+    });
   }
 };
 
 const borrar = async (req, res) => {
   try {
-    const { id } = req.body;
-    const { token } = req.header("token");
-    await Users.borrar(id, token);
-    return res.json({
+    const {id} = req.usuario;
+    const data = await Users.borrar(id);
+    return res.status(200).json({
       msg: "Usuario borrado",
+      data,
     });
   } catch (err) {
     console.log(err);
-    return new Error("Error al borrar usuario - rutas");
+    return res.status(403).json({
+      error: `Error al borrar el usuario: ${err}`,
+    });
+  }
+};
+
+const borrarByCorreo = async (req, res) => {
+  try {
+    const {correo} = req.params;
+    const data = await Users.borrarByCorreo(correo);
+    if (!data) {
+      return res.status(403).json({
+        error: "El usuario no existe",
+      });
+    }
+    return res.status(200).json({
+      msg: "Usuario borrado",
+      data,
+    });
+  } catch (err) {
+    console.error(err);
+    return res.status(403).json({
+      error: `Error al borrar el usuario: ${err}`,
+    });
   }
 };
 
@@ -73,4 +94,5 @@ module.exports = {
   crear,
   login,
   borrar,
+  borrarByCorreo,
 };

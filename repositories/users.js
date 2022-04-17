@@ -1,7 +1,7 @@
 const bcryptjs = require("bcryptjs");
 
-const { Users } = require("./models");
-const { generarJWT } = require("../helpers");
+const {Users} = require("./models");
+const {generarJWT} = require("../helpers");
 
 const get = async () => {
   try {
@@ -12,31 +12,26 @@ const get = async () => {
 };
 
 const crear = async (user) => {
-  const { nombre, correo, contraseña, role } = user;
-  const userNuevo = new Users({ nombre, correo, contraseña, role });
   try {
-    const { contraseña } = user;
+    const data = new Users(user);
+    await data.save();
     const salt = bcryptjs.genSaltSync();
-    userNuevo.contraseña = bcryptjs.hashSync(contraseña, salt);
-    await userNuevo.save(userNuevo);
-    return userNuevo;
+    data.contraseña = bcryptjs.hashSync(data.contraseña, salt);
+    await Users.findByIdAndUpdate(data._id, {contraseña: data.contraseña});
+    return data;
   } catch (err) {
-    console.log(err);
-    return new Error(`Fallo al crear un usuario ${err.message}`);
+    console.error(err);
+    return new Error(err.message);
   }
 };
 
 const login = async (correo, contraseña) => {
   try {
-    const usuario = await Users.findOne({ correo });
+    const usuario = await Users.findOne({correo});
     if (usuario && usuario.estado) {
-      const constraseñaValida = bcryptjs.compareSync(
-        contraseña,
-        usuario.contraseña
-      );
-     
+      const constraseñaValida = bcryptjs.compareSync(contraseña, usuario.contraseña);
       if (!constraseñaValida) {
-        return new Error("Contraseña no valida");
+        return new Error("Contraseña incorrecta");
       }
       const token = await generarJWT(usuario.id, usuario.role);
       return token;
@@ -51,12 +46,19 @@ const login = async (correo, contraseña) => {
 
 const borrar = async (id) => {
   try {
-    const userNuevo = new Users();
-    return await userNuevo.findByIdAndUpdate(id, { estado: false });
+    return await Users.findByIdAndUpdate(id, {estado: false});
   } catch (err) {
     console.log(err);
     return new Error("Error al borrar el usuario - respositorios");
   }
 };
+const borrarByCorreo = async (correo) => {
+  try {
+    return await Users.findOneAndUpdate({correo, estado: true}, {estado: false});
+  } catch (err) {
+    console.error(err);
+    return new Error("Error al borrar el usuario");
+  }
+};
 
-module.exports = { get, crear, login, borrar };
+module.exports = {get, crear, login, borrar, borrarByCorreo};
