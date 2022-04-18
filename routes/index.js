@@ -6,7 +6,7 @@ const Users = require("./users");
 const Roles = require("./roles");
 const Anuncios = require("./anuncios");
 
-const {compararId, validarJWT} = require("../middlewares");
+const {validarJWT} = require("../middlewares");
 
 const app = express();
 
