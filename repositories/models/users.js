@@ -2,11 +2,16 @@ const {Schema, model} = require("mongoose");
 
 const {validate} = require("email-validator");
 const {roles} = require("../../Utils");
+const {Anuncios} = require("./index");
 
 const UsuarioSchema = Schema({
   nombre: {
     type: String,
     required: [true, "El nombre es obligatorio"],
+  },
+  apellido: {
+    type: String,
+    required: [true, "El apellido es obligatorio"],
   },
   contraseña: {
     type: String,
@@ -34,7 +39,7 @@ const UsuarioSchema = Schema({
     default: true,
   },
   anuncios: {
-    type: [[]],
+    type: [[Anuncios]],
   },
   creacionCuenta: {
     type: Date,

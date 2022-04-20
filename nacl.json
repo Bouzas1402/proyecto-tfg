@@ -1,5 +1,20 @@
 [
   {
+    "group": "*",
+    "permissions": [
+      {
+        "resource": "/proyecto/login",
+        "methods": "*",
+        "action": "allow"
+      },
+      {
+        "resource": "/anuncios",
+        "methods": "*",
+        "action": "allow"
+      }
+    ]
+  },
+  {
     "group": "ADMIN_ROLE",
     "permissions": [
       {
@@ -39,5 +54,4 @@
       }
     ]
   }
-
 ]

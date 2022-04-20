@@ -1,6 +1,5 @@
 const express = require("express");
 const acl = require("express-acl");
-const {checkSchema} = require("express-validator");
 
 const Users = require("./users");
 const Roles = require("./roles");
@@ -10,8 +9,11 @@ const {validarJWT} = require("../middlewares");
 
 const app = express();
 
-// conseguir token
+//  Rutas publicas:
+// Login
 app.post("/proyecto/login", Users.login);
+// Anuncios
+app.get("/anuncios", Anuncios.get);
 
 app.use(validarJWT);
 

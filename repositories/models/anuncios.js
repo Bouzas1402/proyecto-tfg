@@ -1,63 +1,79 @@
 const {Schema, model} = require("mongoose");
+const {provincias} = require("../../Utils");
 
-const CalleSchema = Schema({
-  comunidad: {
-    type: String,
-    required: true,
+const CallesSchema = Schema(
+  {
+    provincia: {
+      type: String,
+      enum: provincias,
+    },
+    ciudad: {
+      type: String,
+      required: [true],
+    },
+    nombreCalle: {
+      type: String,
+      required: [true],
+    },
+    portal: {
+      type: Number,
+      required: [true],
+    },
+    piso: {
+      type: String,
+    },
   },
-  provincia: {
-    type: String,
-    required: true,
-  },
-  ciudad: {
-    type: String,
-    required: true,
-  },
-  nombreCalle: {
-    type: String,
-    required: true,
-  },
-  portal: {
-    type: Number,
-    required: true,
-  },
-  piso: {
-    type: String,
-  },
-  autoIndexId: false,
-});
+  {
+    _id: false,
+    autoIndex: false,
+  }
+);
 
-const FotosSchema = Schema({
-  titulo: {
-    type: String,
-    require: [true, "El titulo de la foto es obligatorio"],
+const FotosSchema = Schema(
+  {
+    titulo: {
+      type: String,
+      required: [true, "El titulo de la foto es obligatorio"],
+    },
+    url: {
+      type: String,
+      required: [true, "La url es obligatoria"],
+    },
   },
-  url: {
-    type: String,
-    require: [true, "La url e obligatoria"],
-  },
-});
+  {
+    _id: false,
+    autoIndex: false,
+  }
+);
 
 const AnuncioSchema = Schema({
   titulo: {
     type: String,
-    require: [true, "El titulo es obligatorio"],
+    required: [true, "El titulo es obligatorio"],
   },
-  direccion: [CalleSchema],
-  fotos: [FotosSchema],
+  direccion: {
+    type: CallesSchema,
+    required: [true],
+  },
+  fotos: {type: [FotosSchema], required: [true]},
   descripcion: {
     type: String,
-    required: true,
+    requiredd: [true, "Es obligatorio una discripción"],
   },
   creacion: {
     type: Date,
-    require: true,
     default: new Date(),
   },
   usuarioCuelga: {
     type: Schema.Types.ObjectId,
     ref: "Users",
-    required: true,
+    required: [true],
   },
 });
+
+AnuncioSchema.methods.toJSON = function () {
+  const {__v, ...anuncio} = this.toObject();
+  return anuncio;
+};
+
 module.exports = model("Anuncios", AnuncioSchema);
