@@ -28,6 +28,9 @@ const crear = async (user) => {
 const login = async (correo, contraseña) => {
   try {
     const usuario = await Users.findOne({correo});
+    console.log(correo);
+    console.log(usuario);
+
     if (usuario && usuario.estado) {
       const constraseñaValida = bcryptjs.compareSync(contraseña, usuario.contraseña);
       if (!constraseñaValida) {

@@ -5,7 +5,7 @@ const CallesSchema = Schema(
   {
     provincia: {
       type: String,
-      enum: provincias,
+      //enum: provincias,
     },
     ciudad: {
       type: String,

@@ -11,9 +11,9 @@ const validarJWT = async (req, res, next) => {
       });
     }
 
-    const {uid, role} = jwt.verify(token, process.env.SECRETORPRIVATEKEY);
-    const {nombre, correo, estado} = await Users.findById(uid);
-    req.usuario = {nombre, correo, role, uid, estado};
+    const {_id, role} = jwt.verify(token, process.env.SECRETORPRIVATEKEY);
+    const {nombre, correo, estado} = await Users.findById({_id});
+    req.usuario = {nombre, correo, role, _id, estado};
     if (!estado) {
       return res.status(401).json({
         msg: "Usuario no existe",

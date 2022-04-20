@@ -2,7 +2,6 @@ const {Schema, model} = require("mongoose");
 
 const {validate} = require("email-validator");
 const {roles} = require("../../Utils");
-const {Anuncios} = require("./index");
 
 const UsuarioSchema = Schema({
   nombre: {
@@ -11,7 +10,7 @@ const UsuarioSchema = Schema({
   },
   apellido: {
     type: String,
-    required: [true, "El apellido es obligatorio"],
+    //required: [true, "El apellido es obligatorio"],
   },
   contraseña: {
     type: String,
@@ -39,7 +38,8 @@ const UsuarioSchema = Schema({
     default: true,
   },
   anuncios: {
-    type: [[Anuncios]],
+    type: Schema.Types.ObjectId,
+    ref: "Anuncios",
   },
   creacionCuenta: {
     type: Date,
@@ -49,7 +49,6 @@ const UsuarioSchema = Schema({
 
 UsuarioSchema.methods.toJSON = function () {
   const {__v, contraseña, _id, ...usuario} = this.toObject();
-  usuario.uid = _id;
   return usuario;
 };
 
