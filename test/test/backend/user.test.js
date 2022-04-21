@@ -98,14 +98,6 @@ const pruebas = (index, endpoint, method, expected, origin) => {
 };
 let index = 1;
 rutasTotal.map((ruta) => {
-  /* let coincidencia = rutasExaminar.filter((re) => {
-    const expresion = new RegExp(`^${re.path}`);
-    if (!expresion.exec(ruta.path)) {
-      return [];
-    } else {
-      return re;
-    }
-  });*/
   let coincidencia = rutasExaminar.filter((re) => {
     if (re.replace === true) {
       const expresion = new RegExp(`^${re.path}`);
@@ -122,28 +114,26 @@ rutasTotal.map((ruta) => {
       }
     }
   });
-
   if (coincidencia.length > 0) {
     ruta.methods.forEach((method) => {
       if (coincidencia[0].methods.includes(method)) {
+        ++index;
         pruebas(index, ruta.path, method, false, "LocalHost");
         console.log("distinto a 401", ruta.path, method);
       } else {
+        ++index;
         console.log("401", ruta.path, method);
         pruebas(index, ruta.path, method, true, "LocalHost");
       }
-
       //
       //
       //
     });
   } else {
     ruta.methods.map((method) => {
+      ++index;
       console.log("distinto a 401", ruta.path, method);
-
       pruebas(index, ruta.path, method, false, "LocalHost");
     });
   }
-
-  ++index;
 });
