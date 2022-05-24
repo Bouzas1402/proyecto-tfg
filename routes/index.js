@@ -12,13 +12,16 @@ const app = express();
 //  Rutas publicas:
 // Login
 app.post("/proyecto/login", Users.login);
-// Anuncios
+// Anuncios sin permisos
 app.get("/anuncios", Anuncios.get);
+app.get("/anuncios/:id", Anuncios.getById);
+// Registros
+app.post("/proyecto/user", Users.crear);
 
 app.use(validarJWT);
 
 acl.config({
-  baseUrl: "/",
+  baseUrl: "",
   decodedObjectName: "usuario",
 });
 
@@ -27,7 +30,6 @@ app.use(acl.authorize);
 // User
 app.get("/proyecto/user", Users.get);
 app.get("/proyecto/user/:id", Users.get);
-app.post("/proyecto/user", Users.crear);
 app.put("/proyecto/user");
 app.delete("/proyecto/user", Users.borrar);
 app.delete("/proyecto/user/:correo", Users.borrarByCorreo);
@@ -38,7 +40,10 @@ app.get("/proyecto/roles/get", Roles.get);
 // Anuncios
 app.get("/proyecto/anuncios", Anuncios.get);
 app.post("/proyecto/anuncios", Anuncios.post);
+app.get("/proyecto/guardarAnuncios/:idAnuncio", Users.guardarAnuncio);
 app.delete("/proyecto/anuncios");
 app.put("/proyecto/anuncios");
+
+app.get("/proyecto/comprobarToken", Users.comprobarToken);
 
 module.exports = app;

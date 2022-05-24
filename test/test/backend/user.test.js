@@ -125,9 +125,6 @@ rutasTotal.map((ruta) => {
         console.log("401", ruta.path, method);
         pruebas(index, ruta.path, method, true, "LocalHost");
       }
-      //
-      //
-      //
     });
   } else {
     ruta.methods.map((method) => {

@@ -1,5 +1,4 @@
 const {Users} = require("../repositories");
-const jwt = require("jsonwebtoken");
 
 const get = async () => {
   return await Users.get();
@@ -21,10 +20,15 @@ const borrarByCorreo = async (correo) => {
   return await Users.borrarByCorreo(correo);
 };
 
+const guardarAnuncio = async (idAnuncio, idUsuario) => {
+  return await Users.guardarAnuncio(idAnuncio, idUsuario);
+};
+
 module.exports = {
   get,
   crear,
   login,
   borrar,
   borrarByCorreo,
+  guardarAnuncio,
 };

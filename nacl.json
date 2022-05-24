@@ -1,20 +1,5 @@
 [
   {
-    "group": "*",
-    "permissions": [
-      {
-        "resource": "/proyecto/login",
-        "methods": "*",
-        "action": "allow"
-      },
-      {
-        "resource": "/anuncios",
-        "methods": "*",
-        "action": "allow"
-      }
-    ]
-  },
-  {
     "group": "ADMIN_ROLE",
     "permissions": [
       {
@@ -36,6 +21,16 @@
         "resource": "/proyecto/user",
         "methods": ["DELETE", "PUT"],
         "action": "allow"
+      },
+      {
+        "resource": "/proyecto/comprobarToken",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "/proyecto/guardarAnuncios/*",
+        "methods": ["GET"],
+        "action": "allow"
       }
     ]
   },
@@ -50,6 +45,16 @@
       {
         "resource": "/proyecto/user",
         "methods": ["DELETE", "PUT"],
+        "action": "allow"
+      },
+      {
+        "resource": "/proyecto/comprobarToken",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "/proyecto/guardarAnuncios/*",
+        "methods": ["GET"],
         "action": "allow"
       }
     ]

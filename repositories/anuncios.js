@@ -19,7 +19,19 @@ const post = async (anuncio) => {
   }
 };
 
+const getById = async (id) => {
+  try {
+    const anuncio = await Anuncios.findById(id);
+    if (!anuncio) return null;
+    return anuncio;
+  } catch (err) {
+    console.log(err);
+    return new Error(`Error database - ${err}`);
+  }
+};
+
 module.exports = {
   get,
   post,
+  getById,
 };

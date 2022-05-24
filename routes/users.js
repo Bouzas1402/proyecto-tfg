@@ -8,7 +8,6 @@ const {Users} = require("../controllers");
 const get = async (req, res) => {
   try {
     const users = await Users.get();
-    console.log(users);
     return res.status(200).json({
       users,
     });
@@ -34,16 +33,19 @@ const crear = async (req, res) => {
 };
 
 const login = async (req, res) => {
+  console.log(req.body);
   try {
     const {correo, contraseña} = req.body;
-    const token = await Users.login(correo, contraseña);
-    if (JSON.stringify(token) == "{}") {
+    const data = await Users.login(correo, contraseña);
+    if (JSON.stringify(data) == "{}") {
       return res.status(422).json({
-        error: `Error al introducir los datos:  ${token.message}`,
+        error: `Error al introducir los datos:  ${data.message}`,
       });
     }
+    const {token, usuario} = data;
     return res.status(200).json({
       token,
+      usuario,
     });
   } catch (err) {
     return res.status(403).json({
@@ -89,10 +91,45 @@ const borrarByCorreo = async (req, res) => {
   }
 };
 
+const guardarAnuncio = async (req, res) => {
+  console.log(req);
+  try {
+    const {idAnuncio} = req.params;
+    const {_id} = req.usuario;
+    const data = await Users.guardarAnuncio(idAnuncio, _id);
+    console.log(data);
+    if (!data) {
+      return res.status(403).json({
+        error: "El anuncio no existe",
+      });
+    } else if (String(data).includes("Error")) {
+      return res.status(200).json({
+        error: "Anuncio ya guardado",
+      });
+    }
+    return res.status(200).json({
+      data,
+    });
+  } catch (err) {
+    console.error(err);
+    return res.status(403).json({
+      error: `Error al guardar el usuario: ${err}`,
+    });
+  }
+};
+
+const comprobarToken = async (req, res) => {
+  return res.status(200).json({
+    msg: "Token valido",
+  });
+};
+
 module.exports = {
   get,
   crear,
   login,
   borrar,
   borrarByCorreo,
+  comprobarToken,
+  guardarAnuncio,
 };

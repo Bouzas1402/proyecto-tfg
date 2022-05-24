@@ -13,6 +13,7 @@ const get = async () => {
 
 const crear = async (user) => {
   try {
+    console.log(user);
     const data = new Users(user);
     await data.save();
     const salt = bcryptjs.genSaltSync();
@@ -25,19 +26,17 @@ const crear = async (user) => {
   }
 };
 
-const login = async (correo, contraseña) => {
+const login = async (correo, contraseñaLogin) => {
   try {
     const usuario = await Users.findOne({correo});
-    console.log(correo);
-    console.log(usuario);
 
     if (usuario && usuario.estado) {
-      const constraseñaValida = bcryptjs.compareSync(contraseña, usuario.contraseña);
+      const constraseñaValida = bcryptjs.compareSync(contraseñaLogin, usuario.contraseña);
       if (!constraseñaValida) {
         return new Error("Contraseña incorrecta");
       }
       const token = await generarJWT(usuario.id, usuario.role);
-      return token;
+      return {token, usuario};
     } else {
       return new Error("No existe el usuario");
     }
@@ -64,4 +63,26 @@ const borrarByCorreo = async (correo) => {
   }
 };
 
-module.exports = {get, crear, login, borrar, borrarByCorreo};
+const guardarAnuncio = async (idAnuncio, idUsuario) => {
+  try {
+    const usuario = await Users.findOne({_id: idUsuario});
+    let anuncioRepetido = false;
+    usuario.anuncios.forEach((anuncio) => {
+      if (String(anuncio) === idAnuncio) anuncioRepetido = true;
+    });
+    console.log(anuncioRepetido);
+    if (!anuncioRepetido) {
+      const anuncioUsuario = usuario.anuncios;
+      anuncioUsuario.push(idAnuncio);
+      const data = new Users(usuario);
+      return await usuario.updateOne({anuncios: anuncioUsuario});
+    } else {
+      return new Error("Anuncio ya guardado");
+    }
+  } catch (err) {
+    console.error(err);
+    return new Error(`Error al guardar el anuncio: ${err}`);
+  }
+};
+
+module.exports = {get, crear, login, borrar, borrarByCorreo, guardarAnuncio};

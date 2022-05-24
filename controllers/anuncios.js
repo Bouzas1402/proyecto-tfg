@@ -1,4 +1,4 @@
-const { Anuncios } = require("../repositories");
+const {Anuncios} = require("../repositories");
 
 const get = async () => {
   try {
@@ -17,7 +17,13 @@ const post = async (anuncio) => {
     throw new Error("Fallo al crear el anuncio - contorller");
   }
 };
+
+const getById = async (id) => {
+  return Anuncios.getById(id);
+};
+
 module.exports = {
   get,
   post,
+  getById,
 };

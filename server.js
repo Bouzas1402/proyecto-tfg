@@ -16,10 +16,10 @@ app.use(require("./routes"));
 
 app.listen(process.env.PORT, () => {
   mongoose
-    .connect(process.env.urlDBLocal)
+    .connect(process.env.urlDB)
     .then((res) => console.log("Connected"))
     .catch((err) => console.log(err));
   console.log(`escuchando puerto ${process.env.PORT}`);
-  console.log(`escuchando base de datos ${process.env.urlDBLocal}`);
+  console.log(`escuchando base de datos ${process.env.urlDB}`);
 });
 module.exports = app;

@@ -1,4 +1,4 @@
-const { Anuncios } = require("../controllers");
+const {Anuncios} = require("../controllers");
 
 const get = async (req, res) => {
   try {
@@ -25,7 +25,21 @@ const post = async (req, res) => {
   }
 };
 
+const getById = async (req, res) => {
+  try {
+    const {id} = req.params;
+    const data = await Anuncios.getById(id);
+    res.json({
+      data,
+    });
+  } catch (err) {
+    console.log(err);
+    return new Error("Fallo al crear el anuncio - rutas");
+  }
+};
+
 module.exports = {
   get,
   post,
+  getById,
 };

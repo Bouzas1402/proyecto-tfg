@@ -5,7 +5,7 @@ const CallesSchema = Schema(
   {
     provincia: {
       type: String,
-      //enum: provincias,
+      enum: provincias.value,
     },
     ciudad: {
       type: String,
@@ -46,6 +46,53 @@ const FotosSchema = Schema(
   }
 );
 
+const CaracteristicasSchema = Schema({
+  dormitorios: {
+    type: Number,
+    required: [true, "Introduce el numero de habitaciones"],
+  },
+  baños: {
+    type: Number,
+    required: [true, "Introduce el numero de dormitorios"],
+  },
+  m2: {
+    type: Number,
+    required: [true, "Introduce los metros cuadrados"],
+  },
+  ascensor: {
+    type: Boolean,
+    default: false,
+  },
+  garaje: {
+    type: Boolean,
+    default: false,
+  },
+  piscina: {
+    type: Boolean,
+    default: false,
+  },
+  terraza: {
+    type: Boolean,
+    default: false,
+  },
+  trastero: {
+    type: Boolean,
+    default: false,
+  },
+  equipamiento: {
+    type: [String],
+  },
+  otraDescripcion: {
+    type: String,
+  },
+  zonasComunes: {
+    type: [String],
+  },
+  otros: {
+    type: [String],
+  },
+});
+
 const AnuncioSchema = Schema({
   titulo: {
     type: String,
@@ -60,6 +107,10 @@ const AnuncioSchema = Schema({
     type: String,
     requiredd: [true, "Es obligatorio una discripción"],
   },
+  caracteristicas: {
+    type: CaracteristicasSchema,
+    required: [true, "Es obligatorio"],
+  },
   creacion: {
     type: Date,
     default: new Date(),
@@ -68,6 +119,10 @@ const AnuncioSchema = Schema({
     type: Schema.Types.ObjectId,
     ref: "Users",
     required: [true],
+  },
+  precioMes: {
+    type: Number,
+    required: [true, "Es obligatorio un precio de alquiler"],
   },
 });
 
