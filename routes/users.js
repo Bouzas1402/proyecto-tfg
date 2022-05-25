@@ -20,7 +20,7 @@ const get = async (req, res) => {
 };
 
 const crear = async (req, res) => {
-  const user = await Users.crear(req.body);
+  const user = await Users.crear(req.body.values);
   if (JSON.stringify(user) == "{}") {
     return res.status(422).json({
       error: `Error al introducir los datos:  ${user.message}`,
