@@ -34,7 +34,6 @@ const getById = async (id) => {
 };
 
 const getAnunciosGuardados = async (id) => {
-  let anunciosGuardados = [];
   try {
     const user = await Users.findOne({_id: id}).populate("anuncios");
     console.log(user);
