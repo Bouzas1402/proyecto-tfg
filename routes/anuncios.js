@@ -13,11 +13,9 @@ const get = async (req, res) => {
 };
 
 const post = async (req, res) => {
-  console.log(req.body);
   try {
     const anuncio = req.body.values || res.body;
     anuncio.usuarioCuelga = req.usuario._id;
-    console.log(anuncio);
     const data = await Anuncios.post(anuncio);
     res.json({
       data,
@@ -40,9 +38,22 @@ const getById = async (req, res) => {
     return new Error("Fallo al crear el anuncio - rutas");
   }
 };
+const getAnunciosGuardados = async (req, res) => {
+  try {
+    const {_id} = req.usuario;
+    const data = await Anuncios.getAnunciosGuardados(_id);
+    res.json({
+      data,
+    });
+  } catch (err) {
+    console.log(err);
+    return new Error("Fallo al crear el anuncio - rutas");
+  }
+};
 
 module.exports = {
   get,
   post,
   getById,
+  getAnunciosGuardados,
 };

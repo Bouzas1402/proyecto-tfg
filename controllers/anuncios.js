@@ -5,15 +5,20 @@ const get = async () => {
 };
 
 const post = async (anuncio) => {
-  await Anuncios.post(anuncio);
+  return await Anuncios.post(anuncio);
 };
 
 const getById = async (id) => {
-  return Anuncios.getById(id);
+  return await Anuncios.getById(id);
+};
+
+const getAnunciosGuardados = async (id) => {
+  return await Anuncios.getAnunciosGuardados(id);
 };
 
 module.exports = {
   get,
   post,
   getById,
+  getAnunciosGuardados,
 };

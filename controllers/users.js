@@ -1,7 +1,7 @@
 const {Users} = require("../repositories");
 
-const get = async () => {
-  return await Users.get();
+const get = async (id) => {
+  return await Users.get(id);
 };
 
 const crear = async (user) => {

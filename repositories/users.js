@@ -3,9 +3,10 @@ const bcryptjs = require("bcryptjs");
 const {Users} = require("./models");
 const {generarJWT} = require("../helpers");
 
-const get = async () => {
+const get = async (id) => {
   try {
-    return await Users.find({});
+    console.log(id);
+    return await Users.findById(id);
   } catch (err) {
     console.log(err);
   }
@@ -23,6 +24,15 @@ const crear = async (user) => {
   } catch (err) {
     console.error(err);
     return new Error(err.message);
+  }
+};
+
+const getById = async (id) => {
+  console.log(id);
+  try {
+    return await Users.findById(id);
+  } catch (err) {
+    console.log(err);
   }
 };
 
@@ -85,4 +95,4 @@ const guardarAnuncio = async (idAnuncio, idUsuario) => {
   }
 };
 
-module.exports = {get, crear, login, borrar, borrarByCorreo, guardarAnuncio};
+module.exports = {get, crear, login, borrar, borrarByCorreo, guardarAnuncio, getById};

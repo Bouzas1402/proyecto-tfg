@@ -40,7 +40,8 @@ app.get("/proyecto/roles/get", Roles.get);
 // Anuncios
 app.get("/proyecto/anuncios", Anuncios.get);
 app.post("/proyecto/anuncios", Anuncios.post);
-app.get("/proyecto/guardarAnuncios/:idAnuncio", Users.guardarAnuncio);
+app.get("/proyecto/guardaranuncios/:idAnuncio", Users.guardarAnuncio);
+app.get("/proyecto/anunciosguardados", Anuncios.getAnunciosGuardados);
 app.delete("/proyecto/anuncios");
 app.put("/proyecto/anuncios");
 

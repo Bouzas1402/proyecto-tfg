@@ -7,7 +7,8 @@ const {Users} = require("../controllers");
 
 const get = async (req, res) => {
   try {
-    const users = await Users.get();
+    const {_id} = req.usuario;
+    const users = await Users.get(_id);
     return res.status(200).json({
       users,
     });
@@ -33,7 +34,6 @@ const crear = async (req, res) => {
 };
 
 const login = async (req, res) => {
-  console.log(req.body);
   try {
     const {correo, contraseña} = req.body;
     const data = await Users.login(correo, contraseña);
@@ -56,8 +56,8 @@ const login = async (req, res) => {
 
 const borrar = async (req, res) => {
   try {
-    const {id} = req.usuario;
-    const data = await Users.borrar(id);
+    const {_id} = req.usuario;
+    const data = await Users.borrar(_id);
     return res.status(200).json({
       msg: "Usuario borrado",
       data,
@@ -92,7 +92,6 @@ const borrarByCorreo = async (req, res) => {
 };
 
 const guardarAnuncio = async (req, res) => {
-  console.log(req);
   try {
     const {idAnuncio} = req.params;
     const {_id} = req.usuario;
@@ -113,7 +112,7 @@ const guardarAnuncio = async (req, res) => {
   } catch (err) {
     console.error(err);
     return res.status(403).json({
-      error: `Error al guardar el usuario: ${err}`,
+      error: `Error al guardar el anuncio: ${err}`,
     });
   }
 };

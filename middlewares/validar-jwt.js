@@ -5,7 +5,7 @@ const {Users} = require("../repositories/models");
 const validarJWT = async (req, res, next) => {
   try {
     //const token = req.header("token");
-    console.log(req.headers.token);
+    //console.log(req.headers.token);
     const token = req.headers.token;
     if (!token) {
       return res.status(401).json({
