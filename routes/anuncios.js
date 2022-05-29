@@ -13,8 +13,9 @@ const get = async (req, res) => {
 };
 
 const post = async (req, res) => {
+  console.log(req.body);
   try {
-    const anuncio = req.body;
+    const anuncio = req.body.values || res.body;
     const data = await Anuncios.post(anuncio);
     res.json({
       data,
