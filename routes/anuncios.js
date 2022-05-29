@@ -51,9 +51,24 @@ const getAnunciosGuardados = async (req, res) => {
   }
 };
 
+const borrarAnuncioGuardado = async (req, res) => {
+  try {
+    const idAnuncio = req.params.id;
+    const {_id} = req.usuario;
+    const data = await Anuncios.borrarAnuncioGuardado(idAnuncio, _id);
+    res.json({
+      data,
+    });
+  } catch (err) {
+    console.log(err);
+    return new Error("Fallo al crear el anuncio - rutas");
+  }
+};
+
 module.exports = {
   get,
   post,
   getById,
   getAnunciosGuardados,
+  borrarAnuncioGuardado,
 };

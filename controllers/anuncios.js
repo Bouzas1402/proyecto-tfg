@@ -16,9 +16,14 @@ const getAnunciosGuardados = async (id) => {
   return await Anuncios.getAnunciosGuardados(id);
 };
 
+const borrarAnuncioGuardado = async (idAnuncio, idUsuario) => {
+  return await Anuncios.borrarAnuncioGuardado(idAnuncio, idUsuario);
+};
+
 module.exports = {
   get,
   post,
   getById,
   getAnunciosGuardados,
+  borrarAnuncioGuardado,
 };
