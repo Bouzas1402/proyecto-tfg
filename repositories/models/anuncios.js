@@ -16,7 +16,7 @@ const CallesSchema = Schema(
       required: [true],
     },
     portal: {
-      type: Number,
+      type: String,
       required: [true],
     },
     piso: {
@@ -59,31 +59,9 @@ const CaracteristicasSchema = Schema({
     type: Number,
     required: [true, "Introduce los metros cuadrados"],
   },
-  ascensor: {
-    type: Boolean,
-    default: false,
-  },
-  garaje: {
-    type: Boolean,
-    default: false,
-  },
-  piscina: {
-    type: Boolean,
-    default: false,
-  },
-  terraza: {
-    type: Boolean,
-    default: false,
-  },
-  trastero: {
-    type: Boolean,
-    default: false,
-  },
+
   equipamiento: {
     type: [String],
-  },
-  otraDescripcion: {
-    type: String,
   },
   zonasComunes: {
     type: [String],
