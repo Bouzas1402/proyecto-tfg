@@ -16,6 +16,8 @@ const post = async (req, res) => {
   console.log(req.body);
   try {
     const anuncio = req.body.values || res.body;
+    anuncio.usuarioCuelga = req.usuario._id;
+    console.log(anuncio);
     const data = await Anuncios.post(anuncio);
     res.json({
       data,

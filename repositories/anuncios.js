@@ -12,7 +12,9 @@ const get = async () => {
 const post = async (anuncio) => {
   try {
     const nuevoAnuncio = new Anuncios(anuncio);
-    return await nuevoAnuncio.save(nuevoAnuncio);
+    const crearAnuncio = await nuevoAnuncio.save(nuevoAnuncio);
+    if (!crearAnuncio) return "No se pudo crear el usuario";
+    return crearAnuncio;
   } catch (err) {
     console.log(err);
     return new Error(`Error al crear el anuncio - repositorio - ${err}`);
