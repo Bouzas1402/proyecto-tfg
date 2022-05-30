@@ -1,3 +1,5 @@
+const _ = require("underscore");
+
 const {Anuncios, Users} = require("./models");
 
 const get = async () => {
@@ -18,6 +20,18 @@ const post = async (anuncio) => {
   } catch (err) {
     console.log(err);
     return new Error(`Error al crear el anuncio - repositorio - ${err}`);
+  }
+};
+
+const borrar = async (idAnuncio, idUsuario) => {
+  try {
+    const anuncio = await Anuncios.findById(id);
+    console.log(anuncio);
+    if (!anuncio) return null;
+    return anuncio;
+  } catch (err) {
+    console.log(err);
+    return new Error(`Error database - ${err}`);
   }
 };
 
@@ -58,11 +72,10 @@ const borrarAnuncioGuardado = async (idAnuncio, idUsuario) => {
   try {
     const user = await Users.findById(idUsuario);
     if (!user) return null;
-    console.log(user.anuncios);
-    let anuncioBorrar = user.anuncios.find((anuncio) => anuncio === idAnuncio);
+    let anuncioBorrar = user.anuncios.find((anuncio) => String(anuncio) === idAnuncio);
     if (anuncioBorrar) {
       user.anuncios.pull(anuncioBorrar);
-      usuarioModificado = await user.save();
+      return await user.save();
     } else {
       return "No hay anuncios guardados";
     }
@@ -72,10 +85,26 @@ const borrarAnuncioGuardado = async (idAnuncio, idUsuario) => {
   }
 };
 
+const getByUser = async (id) => {
+  try {
+    const getAnuncios = await Anuncios.find({usuarioCuelga: id});
+    if (!getAnuncios) return null;
+    let anuncios = _.map(getAnuncios, function (anuncio) {
+      return _.omit(anuncio.toObject(), "creacion", "_id", "__v");
+    });
+    return anuncios;
+  } catch (err) {
+    console.log(err);
+    return new Error(`Error database - ${err}`);
+  }
+};
+
 module.exports = {
   get,
   post,
+  borrar,
   getById,
+  getByUser,
   getAnunciosGuardados,
   borrarAnuncioGuardado,
 };

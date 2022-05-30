@@ -12,6 +12,19 @@ const get = async (req, res) => {
   }
 };
 
+const borrar = async (req, res) => {
+  try {
+    const {idAnuncio} = req.params;
+    const data = await Anuncios.borrar(idAnuncio);
+    res.json({
+      data,
+    });
+  } catch (err) {
+    console.log(err);
+    return new Error("Fallo al borrar el anuncio - rutas");
+  }
+};
+
 const post = async (req, res) => {
   try {
     const anuncio = req.body.values || res.body;
@@ -38,6 +51,7 @@ const getById = async (req, res) => {
     return new Error("Fallo al crear el anuncio - rutas");
   }
 };
+
 const getAnunciosGuardados = async (req, res) => {
   try {
     const {_id} = req.usuario;
@@ -53,8 +67,9 @@ const getAnunciosGuardados = async (req, res) => {
 
 const borrarAnuncioGuardado = async (req, res) => {
   try {
-    const idAnuncio = req.params.id;
+    const idAnuncio = req.params.idAnuncio;
     const {_id} = req.usuario;
+    console.log(idAnuncio);
     const data = await Anuncios.borrarAnuncioGuardado(idAnuncio, _id);
     res.json({
       data,
@@ -65,10 +80,24 @@ const borrarAnuncioGuardado = async (req, res) => {
   }
 };
 
+const getByUser = async (req, res) => {
+  try {
+    const {_id} = req.usuario;
+    const data = await Anuncios.getByUser(_id);
+    res.json({
+      data,
+    });
+  } catch (err) {
+    return new Error(`error al buscar el anuncio ${err}`);
+  }
+};
+
 module.exports = {
   get,
   post,
+  borrar,
   getById,
+  getByUser,
   getAnunciosGuardados,
   borrarAnuncioGuardado,
 };

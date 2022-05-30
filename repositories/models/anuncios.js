@@ -46,30 +46,36 @@ const FotosSchema = Schema(
   }
 );
 
-const CaracteristicasSchema = Schema({
-  dormitorios: {
-    type: Number,
-    required: [true, "Introduce el numero de habitaciones"],
-  },
-  baños: {
-    type: Number,
-    required: [true, "Introduce el numero de dormitorios"],
-  },
-  m2: {
-    type: Number,
-    required: [true, "Introduce los metros cuadrados"],
-  },
+const CaracteristicasSchema = Schema(
+  {
+    dormitorios: {
+      type: Number,
+      required: [true, "Introduce el numero de habitaciones"],
+    },
+    baños: {
+      type: Number,
+      required: [true, "Introduce el numero de dormitorios"],
+    },
+    m2: {
+      type: Number,
+      required: [true, "Introduce los metros cuadrados"],
+    },
 
-  equipamiento: {
-    type: [String],
+    equipamiento: {
+      type: [String],
+    },
+    zonasComunes: {
+      type: [String],
+    },
+    otros: {
+      type: [String],
+    },
   },
-  zonasComunes: {
-    type: [String],
-  },
-  otros: {
-    type: [String],
-  },
-});
+  {
+    _id: false,
+    autoIndex: false,
+  }
+);
 
 const AnuncioSchema = Schema({
   titulo: {

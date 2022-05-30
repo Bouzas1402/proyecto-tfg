@@ -56,6 +56,11 @@
         "resource": "/proyecto/guardarAnuncios/*",
         "methods": ["GET"],
         "action": "allow"
+      },
+      {
+        "resource": "/proyecto/anunciosubidos",
+        "methods": ["GET"],
+        "action": "allow"
       }
     ]
   }
