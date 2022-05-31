@@ -9,15 +9,6 @@ const {validarJWT} = require("../middlewares");
 
 const app = express();
 
-//  Rutas publicas:
-// Login
-app.post("/proyecto/login", Users.login);
-// Anuncios sin permisos
-app.get("/anuncios", Anuncios.get);
-app.get("/anuncios/:id", Anuncios.getById);
-// Registros
-app.post("/proyecto/user", Users.crear);
-
 app.use(validarJWT);
 
 acl.config({
@@ -26,6 +17,15 @@ acl.config({
 });
 
 app.use(acl.authorize);
+
+//  Rutas publicas:
+// Login
+app.post("/proyecto/login", Users.login);
+// Anuncios sin permisos
+app.get("/anuncios", Anuncios.get);
+app.get("/anuncios/:id", Anuncios.getById);
+// Registros
+app.post("/proyecto/user", Users.crear);
 
 // User
 app.get("/proyecto/user", Users.get);

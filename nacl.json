@@ -63,5 +63,30 @@
         "action": "allow"
       }
     ]
+  },
+  {
+    "group": "NON_ROLE",
+    "permissions": [
+      {
+        "resource": "/anuncios",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "/anuncios/*",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "/proyecto/user",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "/proyecto/login",
+        "methods": ["POST"],
+        "action": "allow"
+      }
+    ]
   }
 ]

@@ -8,8 +8,9 @@ const validarJWT = async (req, res, next) => {
     //console.log(req.headers.token);
     const token = req.headers.token;
     if (!token) {
-      return res.status(401).json({
-        msg: "No hay token en la petición",
+      req.usuario = {role: "NON_ROLE"};
+      return res.status(200).json({
+        msg: "Sin usuario",
       });
     }
 
