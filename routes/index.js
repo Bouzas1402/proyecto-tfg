@@ -9,6 +9,7 @@ const {validarJWT} = require("../middlewares");
 
 const app = express();
 
+// Validar Token
 app.use(validarJWT);
 
 acl.config({

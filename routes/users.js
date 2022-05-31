@@ -5,6 +5,10 @@ const {Users} = require("../controllers");
 //const { validarCampos } = require("../middlewares");
 //const { ValidacionDB } = require("../helpers");
 
+//
+// Hay que arreglar la respuesta de los catche
+//
+//
 const get = async (req, res) => {
   try {
     const {_id} = req.usuario;
@@ -35,6 +39,7 @@ const crear = async (req, res) => {
 
 const login = async (req, res) => {
   try {
+    console.log(req.usuario);
     const {correo, contraseña} = req.body;
     const data = await Users.login(correo, contraseña);
     if (JSON.stringify(data) == "{}") {
@@ -48,9 +53,7 @@ const login = async (req, res) => {
       usuario,
     });
   } catch (err) {
-    return res.status(403).json({
-      error: `Login incorrecto: ${err}`,
-    });
+    return new Error(`Error al registrarse ${err}`);
   }
 };
 
