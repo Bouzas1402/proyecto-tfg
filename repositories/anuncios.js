@@ -90,7 +90,7 @@ const getByUser = async (id) => {
     const getAnuncios = await Anuncios.find({usuarioCuelga: id});
     if (!getAnuncios) return null;
     let anuncios = _.map(getAnuncios, function (anuncio) {
-      return _.omit(anuncio.toObject(), "creacion", "_id", "__v");
+      return _.omit(anuncio.toObject(), "creacion", "__v");
     });
     return anuncios;
   } catch (err) {
