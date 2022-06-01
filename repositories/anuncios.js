@@ -23,7 +23,7 @@ const post = async (anuncio) => {
   }
 };
 
-const borrar = async (idAnuncio, idUsuario) => {
+const borrar = async (id) => {
   try {
     const anuncio = await Anuncios.findById(id);
     console.log(anuncio);
