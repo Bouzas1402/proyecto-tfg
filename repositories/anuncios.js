@@ -26,7 +26,7 @@ const post = async (anuncio) => {
 const borrar = async (id) => {
   try {
     const anuncio = await Anuncios.findById(id);
-    console.log(anuncio);
+
     if (!anuncio) return null;
     return anuncio;
   } catch (err) {
