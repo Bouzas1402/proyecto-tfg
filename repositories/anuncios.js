@@ -28,7 +28,8 @@ const borrar = async (id) => {
     const anuncio = await Anuncios.findById(id);
 
     if (!anuncio) return null;
-    return anuncio;
+
+    return await Anuncios.deleteOne(id);
   } catch (err) {
     console.log(err);
     return new Error(`Error database - ${err}`);
