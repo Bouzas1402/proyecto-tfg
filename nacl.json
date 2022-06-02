@@ -28,13 +28,13 @@
         "action": "allow"
       },
       {
-        "resource": "/proyecto/guardarAnuncios/*",
+        "resource": "/proyecto/guardaranuncios/*",
         "methods": ["POST"],
         "action": "allow"
       },
       {
         "resource": "/proyecto/borraranuncioguardado/*",
-        "methods": ["POST"],
+        "methods": ["DELETE"],
         "action": "allow"
       },
       {
@@ -68,13 +68,13 @@
         "action": "allow"
       },
       {
-        "resource": "/proyecto/guardarAnuncios/*",
+        "resource": "/proyecto/guardaranuncios/*",
         "methods": ["POST"],
         "action": "allow"
       },
       {
         "resource": "/proyecto/borraranuncioguardado/*",
-        "methods": ["POST"],
+        "methods": ["DELETE"],
         "action": "allow"
       },
       {
