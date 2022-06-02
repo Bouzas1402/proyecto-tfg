@@ -18,23 +18,28 @@
         "action": "allow"
       },
       {
-        "resource": "/proyecto/user",
-        "methods": ["DELETE", "PUT"],
-        "action": "allow"
-      },
-      {
         "resource": "/proyecto/comprobarToken",
-        "methods": ["GET"],
-        "action": "allow"
-      },
-      {
-        "resource": "/proyecto/guardarAnuncios/*",
         "methods": ["GET"],
         "action": "allow"
       },
       {
         "resource": "/proyecto/anunciosguardados",
         "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "/proyecto/guardarAnuncios/*",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "/proyecto/borraranuncioguardado/*",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "/proyecto/user",
+        "methods": ["DELETE", "PUT"],
         "action": "allow"
       }
     ]
@@ -48,8 +53,13 @@
         "action": "allow"
       },
       {
-        "resource": "/proyecto/user",
-        "methods": ["DELETE", "PUT"],
+        "resource": "/proyecto/anunciosubidos",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "/proyecto/anunciosguardados",
+        "methods": ["GET"],
         "action": "allow"
       },
       {
@@ -63,13 +73,13 @@
         "action": "allow"
       },
       {
-        "resource": "/proyecto/anunciosubidos",
-        "methods": ["GET"],
+        "resource": "/proyecto/borraranuncioguardado/*",
+        "methods": ["POST"],
         "action": "allow"
       },
       {
-        "resource": "/proyecto/anunciosguardados",
-        "methods": ["GET"],
+        "resource": "/proyecto/user",
+        "methods": ["DELETE", "PUT"],
         "action": "allow"
       }
     ]
