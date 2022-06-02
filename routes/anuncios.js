@@ -27,8 +27,12 @@ const borrar = async (req, res) => {
 
 const post = async (req, res) => {
   try {
-    const anuncio = req.body.values || res.body;
+    console.log(req);
+    const anuncio = req.body.values || req.body;
+    console.log(anuncio);
+
     anuncio.usuarioCuelga = req.usuario._id;
+    console.log(anuncio);
     const data = await Anuncios.post(anuncio);
     res.json({
       data,
@@ -69,7 +73,6 @@ const borrarAnuncioGuardado = async (req, res) => {
   try {
     const idAnuncio = req.params.idAnuncio;
     const {_id} = req.usuario;
-    console.log(idAnuncio);
     const data = await Anuncios.borrarAnuncioGuardado(idAnuncio, _id);
     res.json({
       data,

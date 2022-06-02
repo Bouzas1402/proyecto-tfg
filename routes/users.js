@@ -39,7 +39,9 @@ const crear = async (req, res) => {
 
 const login = async (req, res) => {
   try {
+    console.log(req.body);
     const {correo, contraseña} = req.body;
+    console.log(correo, contraseña);
     const data = await Users.login(correo, contraseña);
     if (JSON.stringify(data) == "{}") {
       return res.status(422).json({

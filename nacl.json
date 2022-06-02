@@ -33,7 +33,7 @@
         "action": "allow"
       },
       {
-        "resource": "/proyecto/anuncioguardados",
+        "resource": "/proyecto/anunciosguardados",
         "methods": ["GET"],
         "action": "allow"
       }
@@ -68,7 +68,7 @@
         "action": "allow"
       },
       {
-        "resource": "/proyecto/anuncioguardados",
+        "resource": "/proyecto/anunciosguardados",
         "methods": ["GET"],
         "action": "allow"
       }
