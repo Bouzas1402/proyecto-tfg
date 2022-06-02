@@ -31,6 +31,11 @@
         "resource": "/proyecto/guardarAnuncios/*",
         "methods": ["GET"],
         "action": "allow"
+      },
+      {
+        "resource": "/proyecto/anuncioguardados",
+        "methods": ["GET"],
+        "action": "allow"
       }
     ]
   },
@@ -54,11 +59,16 @@
       },
       {
         "resource": "/proyecto/guardarAnuncios/*",
-        "methods": ["GET"],
+        "methods": ["POST"],
         "action": "allow"
       },
       {
         "resource": "/proyecto/anunciosubidos",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "/proyecto/anuncioguardados",
         "methods": ["GET"],
         "action": "allow"
       }
