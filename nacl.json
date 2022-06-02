@@ -53,6 +53,11 @@
         "action": "allow"
       },
       {
+        "resource": "/proyecto/anuncios/*",
+        "methods": ["DELETE"],
+        "action": "allow"
+      },
+      {
         "resource": "/proyecto/anunciosubidos",
         "methods": ["GET"],
         "action": "allow"
