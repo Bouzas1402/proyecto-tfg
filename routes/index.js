@@ -2,7 +2,6 @@ const express = require("express");
 const acl = require("express-acl");
 
 const Users = require("./users");
-const Roles = require("./roles");
 const Anuncios = require("./anuncios");
 
 const {validarJWT} = require("../middlewares");
@@ -35,11 +34,9 @@ app.put("/proyecto/user");
 app.delete("/proyecto/user", Users.borrar);
 app.delete("/proyecto/user/:correo", Users.borrarByCorreo);
 
-// Roles
-app.get("/proyecto/roles/get", Roles.get);
-
 // Anuncios
 app.get("/proyecto/anuncios", Anuncios.get);
+app.get("/proyecto/anunciospaginated", Anuncios.getAllPaginated);
 app.get("/proyecto/anunciosguardados", Anuncios.getAnunciosGuardados);
 app.get("/proyecto/anunciosubidos", Anuncios.getByUser);
 app.post("/proyecto/anuncios", Anuncios.post);

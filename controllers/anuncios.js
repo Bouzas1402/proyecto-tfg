@@ -16,6 +16,20 @@ const getById = async (id) => {
   return await Anuncios.getById(id);
 };
 
+const getByUser = async (id) => {
+  return await Anuncios.getByUser(id);
+};
+
+const getAllPaginated = async (queryParams) => {
+  let tamPage;
+  let numPage;
+  if (queryParams) {
+    if (queryParams.tamPage) tamPage = Number(queryParams.tamPage);
+    if (queryParams.numPage) numPage = Number(queryParams.numPage);
+    return Anuncios.getAllPaginated(tamPage, numPage);
+  }
+};
+
 const getAnunciosGuardados = async (id) => {
   return await Anuncios.getAnunciosGuardados(id);
 };
@@ -24,16 +38,13 @@ const borrarAnuncioGuardado = async (idAnuncio, idUsuario) => {
   return await Anuncios.borrarAnuncioGuardado(idAnuncio, idUsuario);
 };
 
-const getByUser = async (id) => {
-  return await Anuncios.getByUser(id);
-};
-
 module.exports = {
   get,
   post,
   borrar,
   getById,
   getByUser,
+  getAllPaginated,
   getAnunciosGuardados,
   borrarAnuncioGuardado,
 };

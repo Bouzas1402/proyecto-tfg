@@ -10,11 +10,32 @@ const get = async () => {
   }
 };
 
+const getAllPaginated = async (tamPage, numPage) => {
+  let result;
+  let size;
+  try {
+    result = await Anuncios.find()
+      .skip(tamPage * numPage)
+      .limit(Number(tamPage));
+    size = await Anuncios.countDocuments();
+  } catch (err) {
+    throw new Error(`database error ${err}`);
+  }
+
+  if (!result || !result.length) return [];
+  Object.keys(result).forEach((element) => {
+    result[element] = result[element].toObject();
+  });
+
+  return {result, size};
+};
+
 const post = async (anuncio) => {
   try {
     const nuevoAnuncio = new Anuncios(anuncio);
     if (!nuevoAnuncio) return null;
     const crearAnuncio = await nuevoAnuncio.save(nuevoAnuncio);
+
     if (!crearAnuncio) return "No se pudo crear el usuario";
     return crearAnuncio;
   } catch (err) {
@@ -87,6 +108,7 @@ module.exports = {
   borrar,
   getById,
   getByUser,
+  getAllPaginated,
   getAnunciosGuardados,
   borrarAnuncioGuardado,
 };

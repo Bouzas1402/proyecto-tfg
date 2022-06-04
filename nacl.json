@@ -111,6 +111,11 @@
         "resource": "/proyecto/login",
         "methods": ["POST"],
         "action": "allow"
+      },
+      {
+        "resource": "/proyecto/anunciospaginated",
+        "methods": ["GET"],
+        "action": "allow"
       }
     ]
   }

@@ -1,0 +1,502 @@
+[
+  {
+    "nombre": "Bethina",
+    "PrimerApellido": "O' Hanvey",
+    "SegundoApellido": "Markussen",
+    "correo": "bmarkussen0@exblog.jp",
+    "contraseña": "quevedo",
+    "role": "VENTAS_ROLE",
+    "avatar": "https://robohash.org/anequeea.png?size=50x50&set=set1",
+    "telefono": "649774175"
+  },
+  {
+    "nombre": "Cletus",
+    "PrimerApellido": "Armatage",
+    "SegundoApellido": "Karlowicz",
+    "correo": "ckarlowicz1@artisteer.com",
+    "contraseña": "quevedo",
+    "role": "USER_ROLE",
+    "avatar": "https://robohash.org/nequequidemlaborum.png?size=50x50&set=set1",
+    "telefono": "664290154"
+  },
+  {
+    "nombre": "Melody",
+    "PrimerApellido": "Mattys",
+    "SegundoApellido": "Downe",
+    "correo": "mdowne2@pbs.org",
+    "contraseña": "quevedo",
+    "role": "VENTAS_ROLE",
+    "avatar": "https://robohash.org/reprehenderitmolestiaesit.png?size=50x50&set=set1",
+    "telefono": "641083532"
+  },
+  {
+    "nombre": "Theressa",
+    "PrimerApellido": "Culpin",
+    "SegundoApellido": "Scurrer",
+    "correo": "tscurrer3@slate.com",
+    "contraseña": "quevedo",
+    "role": "USER_ROLE",
+    "avatar": "https://robohash.org/exnonrerum.png?size=50x50&set=set1",
+    "telefono": "621257941"
+  },
+  {
+    "nombre": "Byrle",
+    "PrimerApellido": "Kment",
+    "SegundoApellido": "Boyan",
+    "correo": "bboyan4@accuweather.com",
+    "contraseña": "quevedo",
+    "role": "USER_ROLE",
+    "avatar": "https://robohash.org/etdoloret.png?size=50x50&set=set1",
+    "telefono": "672938138"
+  },
+  {
+    "nombre": "Abdel",
+    "PrimerApellido": "Plait",
+    "SegundoApellido": "Ladds",
+    "correo": "aladds5@google.com.au",
+    "contraseña": "quevedo",
+    "role": "USER_ROLE",
+    "avatar": "https://robohash.org/possimusautemquos.png?size=50x50&set=set1",
+    "telefono": "690426532"
+  },
+  {
+    "nombre": "Mercie",
+    "PrimerApellido": "Garrie",
+    "SegundoApellido": null,
+    "correo": "mjepp6@oakley.com",
+    "contraseña": "quevedo",
+    "role": "VENTAS_ROLE",
+    "avatar": "https://robohash.org/temporibuseligendiqui.png?size=50x50&set=set1",
+    "telefono": "680971895"
+  },
+  {
+    "nombre": "Rodolph",
+    "PrimerApellido": "Matusov",
+    "SegundoApellido": null,
+    "correo": "rharnetty7@utexas.edu",
+    "contraseña": "quevedo",
+    "role": "USER_ROLE",
+    "avatar": "https://robohash.org/quisedfugit.png?size=50x50&set=set1",
+    "telefono": "686877656"
+  },
+  {
+    "nombre": "Renato",
+    "PrimerApellido": "Quarmby",
+    "SegundoApellido": "Willoughby",
+    "correo": "rwilloughby8@nps.gov",
+    "contraseña": "quevedo",
+    "role": "VENTAS_ROLE",
+    "avatar": "https://robohash.org/ipsumvoluptatemaperiam.png?size=50x50&set=set1",
+    "telefono": "618932918"
+  },
+  {
+    "nombre": "Farah",
+    "PrimerApellido": "Duncombe",
+    "SegundoApellido": "Shurrocks",
+    "correo": "fshurrocks9@smh.com.au",
+    "contraseña": "quevedo",
+    "role": "VENTAS_ROLE",
+    "avatar": "https://robohash.org/inatquequia.png?size=50x50&set=set1",
+    "telefono": "614271894"
+  },
+  {
+    "nombre": "Orion",
+    "PrimerApellido": "Craythorn",
+    "SegundoApellido": null,
+    "correo": "orosekillya@nymag.com",
+    "contraseña": "quevedo",
+    "role": "VENTAS_ROLE",
+    "avatar": "https://robohash.org/autsitassumenda.png?size=50x50&set=set1",
+    "telefono": "616677465"
+  },
+  {
+    "nombre": "Rosina",
+    "PrimerApellido": "Baskerfield",
+    "SegundoApellido": "Crookall",
+    "correo": "rcrookallb@techcrunch.com",
+    "contraseña": "quevedo",
+    "role": "USER_ROLE",
+    "avatar": "https://robohash.org/minimaaspernaturenim.png?size=50x50&set=set1",
+    "telefono": "677471950"
+  },
+  {
+    "nombre": "Lawrence",
+    "PrimerApellido": "Camous",
+    "SegundoApellido": "Hartman",
+    "correo": "lhartmanc@nps.gov",
+    "contraseña": "quevedo",
+    "role": "VENTAS_ROLE",
+    "avatar": "https://robohash.org/rerumquisporro.png?size=50x50&set=set1",
+    "telefono": "647976352"
+  },
+  {
+    "nombre": "Jenine",
+    "PrimerApellido": "Dolohunty",
+    "SegundoApellido": "Yarker",
+    "correo": "jyarkerd@aboutads.info",
+    "contraseña": "quevedo",
+    "role": "USER_ROLE",
+    "avatar": "https://robohash.org/maiorespraesentiumcupiditate.png?size=50x50&set=set1",
+    "telefono": "686761004"
+  },
+  {
+    "nombre": "Marian",
+    "PrimerApellido": "Devinn",
+    "SegundoApellido": "Frankish",
+    "correo": "mfrankishe@dion.ne.jp",
+    "contraseña": "quevedo",
+    "role": "USER_ROLE",
+    "avatar": "https://robohash.org/officiadoloredolores.png?size=50x50&set=set1",
+    "telefono": "685331715"
+  },
+  {
+    "nombre": "Dal",
+    "PrimerApellido": "Harley",
+    "SegundoApellido": null,
+    "correo": "dhasseklf@digg.com",
+    "contraseña": "quevedo",
+    "role": "USER_ROLE",
+    "avatar": "https://robohash.org/eumnisiconsequatur.png?size=50x50&set=set1",
+    "telefono": "632378381"
+  },
+  {
+    "nombre": "Ernesta",
+    "PrimerApellido": "Chieco",
+    "SegundoApellido": null,
+    "correo": "emessrutherg@gizmodo.com",
+    "contraseña": "quevedo",
+    "role": "VENTAS_ROLE",
+    "avatar": "https://robohash.org/etsitincidunt.png?size=50x50&set=set1",
+    "telefono": "611083059"
+  },
+  {
+    "nombre": "Edsel",
+    "PrimerApellido": "Shotboult",
+    "SegundoApellido": "Quaife",
+    "correo": "equaifeh@github.com",
+    "contraseña": "quevedo",
+    "role": "USER_ROLE",
+    "avatar": "https://robohash.org/iustosolutaaperiam.png?size=50x50&set=set1",
+    "telefono": "650839545"
+  },
+  {
+    "nombre": "Nathalie",
+    "PrimerApellido": "Kopps",
+    "SegundoApellido": "Gatecliff",
+    "correo": "ngatecliffi@merriam-webster.com",
+    "contraseña": "quevedo",
+    "role": "VENTAS_ROLE",
+    "avatar": "https://robohash.org/nonaspernaturvoluptas.png?size=50x50&set=set1",
+    "telefono": "655040239"
+  },
+  {
+    "nombre": "Geri",
+    "PrimerApellido": "Brookson",
+    "SegundoApellido": "Harborow",
+    "correo": "gharborowj@skyrock.com",
+    "contraseña": "quevedo",
+    "role": "VENTAS_ROLE",
+    "avatar": "https://robohash.org/reprehenderitnequeest.png?size=50x50&set=set1",
+    "telefono": "605401500"
+  },
+  {
+    "nombre": "Roslyn",
+    "PrimerApellido": "Lorence",
+    "SegundoApellido": "Jonsson",
+    "correo": "rjonssonk@histats.com",
+    "contraseña": "quevedo",
+    "role": "USER_ROLE",
+    "avatar": "https://robohash.org/nesciuntconsecteturlibero.png?size=50x50&set=set1",
+    "telefono": "635532152"
+  },
+  {
+    "nombre": "Mattias",
+    "PrimerApellido": "McClunaghan",
+    "SegundoApellido": null,
+    "correo": "mfranckl@wunderground.com",
+    "contraseña": "quevedo",
+    "role": "USER_ROLE",
+    "avatar": "https://robohash.org/eiusporroiure.png?size=50x50&set=set1",
+    "telefono": "675434199"
+  },
+  {
+    "nombre": "Persis",
+    "PrimerApellido": "Boniface",
+    "SegundoApellido": "Puddifer",
+    "correo": "ppuddiferm@hostgator.com",
+    "contraseña": "quevedo",
+    "role": "VENTAS_ROLE",
+    "avatar": "https://robohash.org/omnisperferendisconsequatur.png?size=50x50&set=set1",
+    "telefono": "633651807"
+  },
+  {
+    "nombre": "Nicky",
+    "PrimerApellido": "Belfit",
+    "SegundoApellido": "Nulty",
+    "correo": "nnultyn@adobe.com",
+    "contraseña": "quevedo",
+    "role": "USER_ROLE",
+    "avatar": "https://robohash.org/facereveniamcum.png?size=50x50&set=set1",
+    "telefono": "674533208"
+  },
+  {
+    "nombre": "Axe",
+    "PrimerApellido": "Zelake",
+    "SegundoApellido": "Phettis",
+    "correo": "aphettiso@weather.com",
+    "contraseña": "quevedo",
+    "role": "VENTAS_ROLE",
+    "avatar": "https://robohash.org/rerumautemfuga.png?size=50x50&set=set1",
+    "telefono": "653911473"
+  },
+  {
+    "nombre": "Fernande",
+    "PrimerApellido": "Louder",
+    "SegundoApellido": "Rosenblad",
+    "correo": "frosenbladp@wisc.edu",
+    "contraseña": "quevedo",
+    "role": "USER_ROLE",
+    "avatar": "https://robohash.org/sintetautem.png?size=50x50&set=set1",
+    "telefono": "637720797"
+  },
+  {
+    "nombre": "Lottie",
+    "PrimerApellido": "Imort",
+    "SegundoApellido": null,
+    "correo": "lstoakq@freewebs.com",
+    "contraseña": "quevedo",
+    "role": "USER_ROLE",
+    "avatar": "https://robohash.org/estsedreiciendis.png?size=50x50&set=set1",
+    "telefono": "666558473"
+  },
+  {
+    "nombre": "Margareta",
+    "PrimerApellido": "Schwier",
+    "SegundoApellido": "Bartels",
+    "correo": "mbartelsr@devhub.com",
+    "contraseña": "quevedo",
+    "role": "USER_ROLE",
+    "avatar": "https://robohash.org/cuminventorebeatae.png?size=50x50&set=set1",
+    "telefono": "652349374"
+  },
+  {
+    "nombre": "Ethel",
+    "PrimerApellido": "Kurtis",
+    "SegundoApellido": null,
+    "correo": "ecarns@joomla.org",
+    "contraseña": "quevedo",
+    "role": "USER_ROLE",
+    "avatar": "https://robohash.org/porroconsequaturcum.png?size=50x50&set=set1",
+    "telefono": "687012943"
+  },
+  {
+    "nombre": "Donetta",
+    "PrimerApellido": "Hawgood",
+    "SegundoApellido": "Brighouse",
+    "correo": "dbrighouset@umich.edu",
+    "contraseña": "quevedo",
+    "role": "USER_ROLE",
+    "avatar": "https://robohash.org/sitquiahic.png?size=50x50&set=set1",
+    "telefono": "679947487"
+  },
+  {
+    "nombre": "Wendeline",
+    "PrimerApellido": "Chazotte",
+    "SegundoApellido": "Allnutt",
+    "correo": "wallnuttu@dyndns.org",
+    "contraseña": "quevedo",
+    "role": "USER_ROLE",
+    "avatar": "https://robohash.org/etenimet.png?size=50x50&set=set1",
+    "telefono": "638395192"
+  },
+  {
+    "nombre": "Julius",
+    "PrimerApellido": "Darke",
+    "SegundoApellido": "Ord",
+    "correo": "jordv@ustream.tv",
+    "contraseña": "quevedo",
+    "role": "VENTAS_ROLE",
+    "avatar": "https://robohash.org/utesseculpa.png?size=50x50&set=set1",
+    "telefono": "640027037"
+  },
+  {
+    "nombre": "Kiele",
+    "PrimerApellido": "Blinkhorn",
+    "SegundoApellido": "Berrey",
+    "correo": "kberreyw@china.com.cn",
+    "contraseña": "quevedo",
+    "role": "USER_ROLE",
+    "avatar": "https://robohash.org/nonexcepturienim.png?size=50x50&set=set1",
+    "telefono": "612391651"
+  },
+  {
+    "nombre": "Karia",
+    "PrimerApellido": "Carrodus",
+    "SegundoApellido": "Rickarsey",
+    "correo": "krickarseyx@wired.com",
+    "contraseña": "quevedo",
+    "role": "USER_ROLE",
+    "avatar": "https://robohash.org/nisieosest.png?size=50x50&set=set1",
+    "telefono": "615836555"
+  },
+  {
+    "nombre": "Marjy",
+    "PrimerApellido": "Hinkens",
+    "SegundoApellido": "Proven",
+    "correo": "mproveny@dot.gov",
+    "contraseña": "quevedo",
+    "role": "USER_ROLE",
+    "avatar": "https://robohash.org/oditrationevoluptatem.png?size=50x50&set=set1",
+    "telefono": "610978025"
+  },
+  {
+    "nombre": "Milt",
+    "PrimerApellido": "Vasechkin",
+    "SegundoApellido": "Bienvenu",
+    "correo": "mbienvenuz@marriott.com",
+    "contraseña": "quevedo",
+    "role": "USER_ROLE",
+    "avatar": "https://robohash.org/inciduntveritatisab.png?size=50x50&set=set1",
+    "telefono": "603956892"
+  },
+  {
+    "nombre": "Hewe",
+    "PrimerApellido": "Ivchenko",
+    "SegundoApellido": "Kingett",
+    "correo": "hkingett10@desdev.cn",
+    "contraseña": "quevedo",
+    "role": "VENTAS_ROLE",
+    "avatar": "https://robohash.org/nameumexercitationem.png?size=50x50&set=set1",
+    "telefono": "634308937"
+  },
+  {
+    "nombre": "Carlie",
+    "PrimerApellido": "Librey",
+    "SegundoApellido": "Morican",
+    "correo": "cmorican11@deviantart.com",
+    "contraseña": "quevedo",
+    "role": "VENTAS_ROLE",
+    "avatar": "https://robohash.org/iureestid.png?size=50x50&set=set1",
+    "telefono": "697490288"
+  },
+  {
+    "nombre": "Solly",
+    "PrimerApellido": "Core",
+    "SegundoApellido": "Benedict",
+    "correo": "sbenedict12@ucoz.ru",
+    "contraseña": "quevedo",
+    "role": "USER_ROLE",
+    "avatar": "https://robohash.org/velsolutaa.png?size=50x50&set=set1",
+    "telefono": "638922537"
+  },
+  {
+    "nombre": "Tandie",
+    "PrimerApellido": "Quarrie",
+    "SegundoApellido": "Rawles",
+    "correo": "trawles13@google.de",
+    "contraseña": "quevedo",
+    "role": "VENTAS_ROLE",
+    "avatar": "https://robohash.org/eiusmolestiaehic.png?size=50x50&set=set1",
+    "telefono": "621420161"
+  },
+  {
+    "nombre": "Martynne",
+    "PrimerApellido": "Borel",
+    "SegundoApellido": "Cabell",
+    "correo": "mcabell14@scientificamerican.com",
+    "contraseña": "quevedo",
+    "role": "VENTAS_ROLE",
+    "avatar": "https://robohash.org/omnisconsecteturfacilis.png?size=50x50&set=set1",
+    "telefono": "601386582"
+  },
+  {
+    "nombre": "Valery",
+    "PrimerApellido": "Melendez",
+    "SegundoApellido": "Rivalant",
+    "correo": "vrivalant15@de.vu",
+    "contraseña": "quevedo",
+    "role": "VENTAS_ROLE",
+    "avatar": "https://robohash.org/teneturquinon.png?size=50x50&set=set1",
+    "telefono": "695696510"
+  },
+  {
+    "nombre": "Fredia",
+    "PrimerApellido": "McDoual",
+    "SegundoApellido": "Hattoe",
+    "correo": "fhattoe16@livejournal.com",
+    "contraseña": "quevedo",
+    "role": "USER_ROLE",
+    "avatar": "https://robohash.org/abpossimusdicta.png?size=50x50&set=set1",
+    "telefono": "615048945"
+  },
+  {
+    "nombre": "Leicester",
+    "PrimerApellido": "Cracknell",
+    "SegundoApellido": null,
+    "correo": "lkwiek17@cnn.com",
+    "contraseña": "quevedo",
+    "role": "VENTAS_ROLE",
+    "avatar": "https://robohash.org/cumquesuntea.png?size=50x50&set=set1",
+    "telefono": "647186220"
+  },
+  {
+    "nombre": "Beverly",
+    "PrimerApellido": "Bonwell",
+    "SegundoApellido": "Vassano",
+    "correo": "bvassano18@simplemachines.org",
+    "contraseña": "quevedo",
+    "role": "VENTAS_ROLE",
+    "avatar": "https://robohash.org/quiaetsunt.png?size=50x50&set=set1",
+    "telefono": "689167027"
+  },
+  {
+    "nombre": "Gunar",
+    "PrimerApellido": "Fredi",
+    "SegundoApellido": "Neat",
+    "correo": "gneat19@geocities.com",
+    "contraseña": "quevedo",
+    "role": "USER_ROLE",
+    "avatar": "https://robohash.org/corruptiautsed.png?size=50x50&set=set1",
+    "telefono": "655384228"
+  },
+  {
+    "nombre": "Ceciley",
+    "PrimerApellido": "Wrightem",
+    "SegundoApellido": "Froschauer",
+    "correo": "cfroschauer1a@cafepress.com",
+    "contraseña": "quevedo",
+    "role": "USER_ROLE",
+    "avatar": "https://robohash.org/etnemoprovident.png?size=50x50&set=set1",
+    "telefono": "694181352"
+  },
+  {
+    "nombre": "Bent",
+    "PrimerApellido": "St Ledger",
+    "SegundoApellido": "Calverd",
+    "correo": "bcalverd1b@twitpic.com",
+    "contraseña": "quevedo",
+    "role": "USER_ROLE",
+    "avatar": "https://robohash.org/recusandaedictafugit.png?size=50x50&set=set1",
+    "telefono": "616318050"
+  },
+  {
+    "nombre": "Tymothy",
+    "PrimerApellido": "Dudman",
+    "SegundoApellido": null,
+    "correo": "ttollady1c@cnet.com",
+    "contraseña": "quevedo",
+    "role": "VENTAS_ROLE",
+    "avatar": "https://robohash.org/magnieligendienim.png?size=50x50&set=set1",
+    "telefono": "661565753"
+  },
+  {
+    "nombre": "Leonidas",
+    "PrimerApellido": "Proven",
+    "SegundoApellido": "Kingsley",
+    "correo": "lkingsley1d@newyorker.com",
+    "contraseña": "quevedo",
+    "role": "VENTAS_ROLE",
+    "avatar": "https://robohash.org/atqueeaet.png?size=50x50&set=set1",
+    "telefono": "669278268"
+  }
+]

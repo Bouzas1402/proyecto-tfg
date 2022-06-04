@@ -1,0 +1,16 @@
+{
+  // "_id" : ObjectId("628bffd22610d047e28c1fd4"),
+  "nombre": "Admin",
+  "PrimerApellido": "Admin",
+  "SegundoApellido": "Admin",
+  "contraseña": "$2a$10$u94RmOX0TEPv.1WZ0DBinOn5msd2QQUI1ZGrXjkWL296ZXMzjx4zm",
+  "correo": "admin@correo.com",
+  "role": "ADMIN_ROLE",
+  "telefono": "6265232848",
+  "estado": true,
+  "anuncios": [
+    //    ObjectId("628c01132610d047e28c1fe6")
+  ]
+  // "creacionCuenta" : ISODate("2022-05-23T21:42:42.603+0000"),
+  // "__v" : NumberInt(10)
+}

@@ -7,8 +7,7 @@ const get = async (req, res) => {
       anuncios,
     });
   } catch (err) {
-    console.log(err);
-    return new Error("Fallo al recuperar los anuncios - rutas");
+    return new Error(`Fallo al buscar los anuncios ${err}`);
   }
 };
 
@@ -20,25 +19,20 @@ const borrar = async (req, res) => {
       data,
     });
   } catch (err) {
-    console.log(err);
-    return new Error("Fallo al borrar el anuncio - rutas");
+    return new Error(`Fallo al borrar el anuncio ${err}`);
   }
 };
 
 const post = async (req, res) => {
   try {
-    console.log(req);
     const anuncio = req.body.values || req.body;
-    console.log(anuncio);
 
     anuncio.usuarioCuelga = req.usuario._id;
-    console.log(anuncio);
     const data = await Anuncios.post(anuncio);
     res.json({
       data,
     });
   } catch (err) {
-    console.log(err);
     return new Error("Fallo al crear el anuncio - rutas");
   }
 };
@@ -51,8 +45,16 @@ const getById = async (req, res) => {
       data,
     });
   } catch (err) {
-    console.log(err);
-    return new Error("Fallo al crear el anuncio - rutas");
+    return new Error(`Fallo al buscar los anuncios ${err}`);
+  }
+};
+
+const getAllPaginated = async (req, res) => {
+  try {
+    const users = await Anuncios.getAllPaginated(req.query);
+    return res.json({data: users});
+  } catch (err) {
+    return new Error(`Fallo al buscar los anuncios ${err}`);
   }
 };
 
@@ -64,8 +66,7 @@ const getAnunciosGuardados = async (req, res) => {
       data,
     });
   } catch (err) {
-    console.log(err);
-    return new Error("Fallo al crear el anuncio - rutas");
+    return new Error(`Fallo al buscar los anuncios ${err}`);
   }
 };
 
@@ -78,8 +79,7 @@ const borrarAnuncioGuardado = async (req, res) => {
       data,
     });
   } catch (err) {
-    console.log(err);
-    return new Error("Fallo al crear el anuncio - rutas");
+    return new Error(`Fallo al borrar el anuncio ${err}`);
   }
 };
 
@@ -101,6 +101,7 @@ module.exports = {
   borrar,
   getById,
   getByUser,
+  getAllPaginated,
   getAnunciosGuardados,
   borrarAnuncioGuardado,
 };

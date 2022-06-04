@@ -31,7 +31,7 @@ const UsuarioSchema = Schema({
     unique: [true, "Este correo ya esta registrado"],
   },
   avatar: {
-    type: Buffer,
+    type: String,
   },
   role: {
     type: String,
