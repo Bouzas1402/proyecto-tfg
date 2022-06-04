@@ -5,34 +5,35 @@ const {generarJWT} = require("../helpers");
 
 const get = async (id) => {
   try {
-    console.log(id);
-    return await Users.findById(id);
+    const usuario = await Users.findById(id);
+    if (!usuario) return null;
+    return usuario;
   } catch (err) {
-    console.log(err);
+    return new Error(`Error al buscar el usuario${err}`);
   }
 };
 
 const crear = async (user) => {
   try {
-    console.log(user);
     const data = new Users(user);
+    if (!data) return null;
     await data.save();
     const salt = bcryptjs.genSaltSync();
     data.contraseña = bcryptjs.hashSync(data.contraseña, salt);
     await Users.findByIdAndUpdate(data._id, {contraseña: data.contraseña});
     return data;
   } catch (err) {
-    console.error(err);
-    return new Error(err.message);
+    return new Error(`Error al crear el usuacrio - ${err}`);
   }
 };
 
 const getById = async (id) => {
-  console.log(id);
   try {
-    return await Users.findById(id);
+    const data = await Users.findById(id);
+    if (!data) return null;
+    return data;
   } catch (err) {
-    console.log(err);
+    return new Error(`error al buscar el usuario - ${err}`);
   }
 };
 
@@ -51,7 +52,6 @@ const login = async (correo, contraseñaLogin) => {
       return new Error("No existe el usuario");
     }
   } catch (error) {
-    console.log(error);
     return new Error("Hable con el administrador");
   }
 };
@@ -60,7 +60,6 @@ const borrar = async (id) => {
   try {
     return await Users.findByIdAndUpdate(id, {estado: false});
   } catch (err) {
-    console.log(err);
     return new Error("Error al borrar el usuario - respositorios");
   }
 };
@@ -68,7 +67,6 @@ const borrarByCorreo = async (correo) => {
   try {
     return await Users.findOneAndUpdate({correo, estado: true}, {estado: false});
   } catch (err) {
-    console.error(err);
     return new Error("Error al borrar el usuario");
   }
 };
@@ -80,7 +78,6 @@ const guardarAnuncio = async (idAnuncio, idUsuario) => {
     usuario.anuncios.forEach((anuncio) => {
       if (String(anuncio) === idAnuncio) anuncioRepetido = true;
     });
-    console.log(anuncioRepetido);
     if (!anuncioRepetido) {
       const anuncioUsuario = usuario.anuncios;
       anuncioUsuario.push(idAnuncio);
@@ -90,7 +87,6 @@ const guardarAnuncio = async (idAnuncio, idUsuario) => {
       return new Error("Anuncio ya guardado");
     }
   } catch (err) {
-    console.error(err);
     return new Error(`Error al guardar el anuncio: ${err}`);
   }
 };

@@ -1,14 +1,5 @@
-//const { check } = require("express-validator");
-const validator = require("email-validator");
 const {Users} = require("../controllers");
 
-//const { validarCampos } = require("../middlewares");
-//const { ValidacionDB } = require("../helpers");
-
-//
-// Hay que arreglar la respuesta de los catche
-//
-//
 const get = async (req, res) => {
   try {
     const {_id} = req.usuario;
@@ -17,38 +8,34 @@ const get = async (req, res) => {
       users,
     });
   } catch (err) {
-    console.log(err);
-    return res.status(403).json({
-      error: `Error al buscar los usuarios: ${err}`,
-    });
+    return new Error(`Error al buscar los usuarios: ${err}`);
   }
 };
 
 const crear = async (req, res) => {
-  const user = await Users.crear(req.body);
-  if (JSON.stringify(user) == "{}") {
-    return res.status(422).json({
-      error: `Error al introducir los datos:  ${user.message}`,
+  try {
+    const user = await Users.crear(req.body);
+    if (JSON.stringify(user) == "{}") {
+      return new Error(`error al crear el usuario`);
+    }
+    return res.status(200).json({
+      msg: `Usuario ${user.correo} creado`,
+      user,
     });
+  } catch (err) {
+    return new Error(`error al crear el usuario`);
   }
-  return res.status(200).json({
-    msg: `Usuario ${user.correo} creado`,
-    user,
-  });
 };
 
 const login = async (req, res) => {
   try {
-    console.log(req.body);
     const {correo, contraseña} = req.body;
-    console.log(correo, contraseña);
     const data = await Users.login(correo, contraseña);
     if (JSON.stringify(data) == "{}") {
-      return res.status(422).json({
-        error: `Error al introducir los datos:  ${data.message}`,
-      });
+      return new Error(`error al introducir los datos ${err}`);
     }
     const {token, usuario} = data;
+
     return res.status(200).json({
       token,
       usuario,
@@ -67,10 +54,7 @@ const borrar = async (req, res) => {
       data,
     });
   } catch (err) {
-    console.log(err);
-    return res.status(403).json({
-      error: `Error al borrar el usuario: ${err}`,
-    });
+    return new Error(`Error al borrar el usuario: ${err}`);
   }
 };
 
@@ -88,10 +72,7 @@ const borrarByCorreo = async (req, res) => {
       data,
     });
   } catch (err) {
-    console.error(err);
-    return res.status(403).json({
-      error: `Error al borrar el usuario: ${err}`,
-    });
+    return new Error(`Error al borrar el usuario: ${err}`);
   }
 };
 
@@ -100,7 +81,6 @@ const guardarAnuncio = async (req, res) => {
     const {idAnuncio} = req.params;
     const {_id} = req.usuario;
     const data = await Users.guardarAnuncio(idAnuncio, _id);
-    console.log(data);
     if (!data) {
       return res.status(403).json({
         error: "El anuncio no existe",
@@ -114,10 +94,7 @@ const guardarAnuncio = async (req, res) => {
       data,
     });
   } catch (err) {
-    console.error(err);
-    return res.status(403).json({
-      error: `Error al guardar el anuncio: ${err}`,
-    });
+    return new Error(`Error al guardar el anuncio: ${err}`);
   }
 };
 
