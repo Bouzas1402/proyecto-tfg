@@ -1,6 +1,6 @@
 const bcryptjs = require("bcryptjs");
 
-const {Users} = require("./models");
+const {Users, Anuncios} = require("./models");
 const {generarJWT} = require("../helpers");
 
 const get = async (id) => {
@@ -63,6 +63,7 @@ const borrar = async (id) => {
     return new Error("Error al borrar el usuario - respositorios");
   }
 };
+
 const borrarByCorreo = async (correo) => {
   try {
     return await Users.findOneAndUpdate({correo, estado: true}, {estado: false});
@@ -73,6 +74,8 @@ const borrarByCorreo = async (correo) => {
 
 const guardarAnuncio = async (idAnuncio, idUsuario) => {
   try {
+    const anuncio = await Anuncios.findById(idAnuncio);
+    if (anuncio === null) return new Error("El anuncio no existe");
     const usuario = await Users.findOne({_id: idUsuario});
     let anuncioRepetido = false;
     usuario.anuncios.forEach((anuncio) => {

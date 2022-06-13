@@ -8,22 +8,22 @@ const get = async (req, res) => {
       users,
     });
   } catch (err) {
-    return new Error(`Error al buscar los usuarios: ${err}`);
+    return res.status(500).json({error: `Error al buscar los usuarios: ${err}`});
   }
 };
 
 const crear = async (req, res) => {
   try {
-    const user = await Users.crear(req.body);
-    if (JSON.stringify(user) == "{}") {
-      return new Error(`error al crear el usuario`);
+    const data = await Users.crear(req.body);
+    if (String(data).includes("Error")) {
+      return res.status(403).json({error: String(data)});
     }
     return res.status(200).json({
-      msg: `Usuario ${user.correo} creado`,
-      user,
+      msg: `Usuario ${data.correo} creado`,
+      user: data,
     });
   } catch (err) {
-    return new Error(`error al crear el usuario`);
+    return res.status(500).json({error: `error al crear el usuario`});
   }
 };
 
@@ -31,8 +31,8 @@ const login = async (req, res) => {
   try {
     const {correo, contraseña} = req.body;
     const data = await Users.login(correo, contraseña);
-    if (JSON.stringify(data) == "{}") {
-      return new Error(`error al introducir los datos ${err}`);
+    if (String(data).includes("Error")) {
+      return res.status(403).json({error: `error al introducir los datos ${data}`});
     }
     const {token, usuario} = data;
 
@@ -41,7 +41,7 @@ const login = async (req, res) => {
       usuario,
     });
   } catch (err) {
-    return new Error(`Error al registrarse ${err}`);
+    return res.status(500).json({error: `Error al registrarse ${err}`});
   }
 };
 
@@ -54,7 +54,7 @@ const borrar = async (req, res) => {
       data,
     });
   } catch (err) {
-    return new Error(`Error al borrar el usuario: ${err}`);
+    return res.status(500).json({error: `Error al borrar el usuario: ${err}`});
   }
 };
 
@@ -72,7 +72,7 @@ const borrarByCorreo = async (req, res) => {
       data,
     });
   } catch (err) {
-    return new Error(`Error al borrar el usuario: ${err}`);
+    return res.status(500).json({error: `Error al borrar el usuario: ${err}`});
   }
 };
 
@@ -81,20 +81,16 @@ const guardarAnuncio = async (req, res) => {
     const {idAnuncio} = req.params;
     const {_id} = req.usuario;
     const data = await Users.guardarAnuncio(idAnuncio, _id);
-    if (!data) {
+    if (String(data).includes("Error")) {
       return res.status(403).json({
-        error: "El anuncio no existe",
-      });
-    } else if (String(data).includes("Error")) {
-      return res.status(200).json({
-        error: "Anuncio ya guardado",
+        error: data.toString(),
       });
     }
     return res.status(200).json({
       data,
     });
   } catch (err) {
-    return new Error(`Error al guardar el anuncio: ${err}`);
+    return res.status(500).json({error: `Error al guardar el anuncio: ${err}`});
   }
 };
 

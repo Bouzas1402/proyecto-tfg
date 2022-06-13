@@ -1,32 +1,32 @@
 const mongoose = require("mongoose");
 const request = require("supertest");
-const {generarJWT} = require("../../helpers");
 
 process.env.urlDB = "mongodb://localhost:27017/test_proyecto";
 const app = require("../../server");
 
-//global.apikey = '$2b$10$PtBCxIPG7gOoviQBc63nOOolHQVup0TS.4kq3P2tWaXBJCVuBI.MO';
-//global.apikeyGestion = '$2b$10$43Uq1fNiN6/M3zGwKjeLTuL/xULrlwmsR9lrF0agh8pzSMeyvUAFC';
-
+//before((done) => {});
+//before((done) => {});
 before((done) => {
   request(app)
     .post("/proyecto/login")
     .send({correo: "admin@correo.com", contraseña: "admin"})
     .set("Accept", "application/json")
     .set("origin", "LocalHost")
-    .end(async (err, res) => {
-      global.tokenAdmin = res.body.token;
+    .expect("Content-Type", /json/)
+    .end((err, res) => {
+      global.admin = {token: res.body.token, id: res.body.usuario._id};
       done();
     });
 });
 before((done) => {
   request(app)
     .post("/proyecto/login")
-    .send({correo: "usuario1@correo.com", contraseña: "usuario"})
+    .send({correo: "ventas1@correo.com", contraseña: "ventas"})
     .set("Accept", "application/json")
     .set("origin", "LocalHost")
-    .end(async (err, res) => {
-      global.tokenUsuario = res.body.token;
+    .expect("Content-Type", /json/)
+    .end((err, res) => {
+      global.ventas = {token: res.body.token, id: res.body.usuario._id};
       done();
     });
 });

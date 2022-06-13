@@ -39,7 +39,12 @@
       },
       {
         "resource": "/proyecto/user",
-        "methods": ["DELETE", "PUT"],
+        "methods": ["DELETE", "PUT", "GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "/proyecto/anunciospaginated",
+        "methods": ["GET"],
         "action": "allow"
       }
     ]
@@ -84,7 +89,12 @@
       },
       {
         "resource": "/proyecto/user",
-        "methods": ["DELETE", "PUT"],
+        "methods": ["DELETE", "PUT", "GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "/proyecto/anunciospaginated",
+        "methods": ["GET"],
         "action": "allow"
       }
     ]

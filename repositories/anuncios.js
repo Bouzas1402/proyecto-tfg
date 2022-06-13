@@ -4,7 +4,8 @@ const {Anuncios, Users} = require("./models");
 
 const get = async () => {
   try {
-    return await Anuncios.find();
+    const data = await Anuncios.find();
+    return data;
   } catch (err) {
     return new Error("Error al buscar los usuarios");
   }
@@ -35,7 +36,6 @@ const post = async (anuncio) => {
     const nuevoAnuncio = new Anuncios(anuncio);
     if (!nuevoAnuncio) return null;
     const crearAnuncio = await nuevoAnuncio.save(nuevoAnuncio);
-
     if (!crearAnuncio) return "No se pudo crear el usuario";
     return crearAnuncio;
   } catch (err) {
@@ -80,9 +80,10 @@ const borrarAnuncioGuardado = async (idAnuncio, idUsuario) => {
     let anuncioBorrar = user.anuncios.find((anuncio) => String(anuncio) === idAnuncio);
     if (anuncioBorrar) {
       user.anuncios.pull(anuncioBorrar);
-      return await user.save();
+      await user.save();
+      return "Anuncio guardado";
     } else {
-      return "No hay anuncios guardados";
+      return "No esta el anuncio en anuncios guardados";
     }
   } catch (err) {
     return new Error(`Error database - ${err}`);
